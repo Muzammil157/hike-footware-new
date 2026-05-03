@@ -20,7 +20,7 @@
     <div class="mz-trust__grid">
 
       <!-- ========================
-           AREA: Heading
+           LEFT: Heading
            ======================== -->
       <div class="mz-trust__area-heading">
         {%- if section.settings.heading != blank -%}
@@ -31,16 +31,37 @@
       </div>
 
       <!-- ========================
-           AREA: Paragraph
+           RIGHT: Paragraph + Stats
+           (spans all left rows — never affects left row heights)
            ======================== -->
-      <div class="mz-trust__area-paragraph">
+      <div class="mz-trust__area-right">
         {%- if section.settings.paragraph != blank -%}
           <div class="mz-trust__paragraph">{{ section.settings.paragraph }}</div>
+        {%- endif -%}
+
+        {%- if stat_blocks.size > 0 -%}
+          <div class="mz-trust__stats">
+            {%- for block in stat_blocks -%}
+              <div class="mz-trust__stat" {{ block.shopify_attributes }}>
+                {%- if block.settings.value != blank -%}
+                  <p class="mz-trust__stat-value"
+                    {%- if block.settings.value_color != blank and block.settings.value_color != 'rgba(0,0,0,0)' %}
+                      style="color: {{ block.settings.value_color }};"
+                    {%- endif %}>
+                    {{ block.settings.value | escape }}
+                  </p>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <p class="mz-trust__stat-desc">{{ block.settings.description | escape }}</p>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
         {%- endif -%}
       </div>
 
       <!-- ========================
-           AREA: Image
+           LEFT: Image
            ======================== -->
       <div class="mz-trust__area-image">
         <div class="mz-trust__image-wrapper">
@@ -62,32 +83,7 @@
       </div>
 
       <!-- ========================
-           AREA: Stats (2×2 grid)
-           ======================== -->
-      {%- if stat_blocks.size > 0 -%}
-        <div class="mz-trust__area-stats">
-          <div class="mz-trust__stats">
-            {%- for block in stat_blocks -%}
-              <div class="mz-trust__stat" {{ block.shopify_attributes }}>
-                {%- if block.settings.value != blank -%}
-                  <p class="mz-trust__stat-value"
-                    {%- if block.settings.value_color != blank and block.settings.value_color != 'rgba(0,0,0,0)' %}
-                      style="color: {{ block.settings.value_color }};"
-                    {%- endif %}>
-                    {{ block.settings.value | escape }}
-                  </p>
-                {%- endif -%}
-                {%- if block.settings.description != blank -%}
-                  <p class="mz-trust__stat-desc">{{ block.settings.description | escape }}</p>
-                {%- endif -%}
-              </div>
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
-
-      <!-- ========================
-           AREA: Feature badges
+           LEFT: Feature badges
            ======================== -->
       {%- if feature_blocks.size > 0 -%}
         <div class="mz-trust__area-features">

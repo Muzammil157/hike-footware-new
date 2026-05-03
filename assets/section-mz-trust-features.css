@@ -17,26 +17,27 @@
 }
 
 /* ============================================
-   GRID — 5 named areas
+   GRID
+   Right column spans all rows so it never
+   affects the left column's row heights.
    ============================================ */
 .mz-trust__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "heading   paragraph"
-    "image     stats"
-    "features  stats";
+    "heading  right"
+    "image    right"
+    "features right";
   column-gap: 6rem;
   row-gap: 2rem;
   align-items: start;
 }
 
-.mz-trust__area-heading   { grid-area: heading; align-self: end; }
-.mz-trust__area-paragraph { grid-area: paragraph; }
-.mz-trust__area-image     { grid-area: image; }
-.mz-trust__area-stats     { grid-area: stats; }
-.mz-trust__area-features  { grid-area: features; }
+.mz-trust__area-heading  { grid-area: heading; }
+.mz-trust__area-right    { grid-area: right; display: flex; flex-direction: column; gap: 3.2rem; }
+.mz-trust__area-image    { grid-area: image; }
+.mz-trust__area-features { grid-area: features; }
 
 /* ============================================
    HEADING
@@ -67,7 +68,7 @@
 }
 
 /* ============================================
-   PARAGRAPH
+   RIGHT COLUMN INNER
    ============================================ */
 .mz-trust__paragraph {
   margin: 0;
@@ -88,7 +89,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 3.2rem 4rem;
   align-content: start;
-  padding-top: 2.4rem;
 }
 
 .mz-trust__stat {
@@ -155,12 +155,11 @@
     gap: 2.4rem;
   }
 
-  /* Mobile order: heading → paragraph → stats → image → features */
-  .mz-trust__area-heading   { order: 1; }
-  .mz-trust__area-paragraph { order: 2; }
-  .mz-trust__area-stats     { order: 3; }
-  .mz-trust__area-image     { order: 4; }
-  .mz-trust__area-features  { order: 5; }
+  /* Mobile order: heading → right col (paragraph+stats) → image → features */
+  .mz-trust__area-heading  { order: 1; }
+  .mz-trust__area-right    { order: 2; }
+  .mz-trust__area-image    { order: 3; }
+  .mz-trust__area-features { order: 4; }
 
   .mz-trust__heading {
     font-size: 2.4rem;
