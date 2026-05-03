@@ -10,10 +10,7 @@
   }
 {%- endstyle -%}
 
-{%- liquid
-  assign faq_blog = section.settings.faq_blog
-  assign articles_limit = section.settings.articles_limit
--%}
+{%- assign faq_blocks = section.blocks | where: 'type', 'faq_item' -%}
 
 <div class="mz-faq-image color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width">
@@ -38,7 +35,7 @@
               | image_tag:
                 loading: 'lazy',
                 class: 'mz-faq-image__img',
-                alt: section.settings.image.alt,
+                alt: section.settings.image.alt | escape,
                 widths: '400, 600, 800',
                 sizes: '(max-width: 749px) 100vw, 50vw'
             }}
@@ -60,21 +57,22 @@
 
         <div class="mz-faq-image__accordion">
 
-          {%- if faq_blog != blank and faq_blog.articles_count > 0 -%}
+          {%- if faq_blocks.size > 0 -%}
 
-            {%- for article in faq_blog.articles limit: articles_limit -%}
-              <details class="mz-faq-image__item">
+            {%- for block in faq_blocks -%}
+              {%- assign icon_alt = block.settings.icon.alt | default: '' | escape -%}
+              <details class="mz-faq-image__item" {{ block.shopify_attributes }}>
                 <summary class="mz-faq-image__item-header">
 
-                  <!-- Icon: article featured image inside a circle -->
+                  <!-- Icon: block image inside a circle -->
                   <span class="mz-faq-image__item-icon" aria-hidden="true">
-                    {%- if article.image != blank -%}
+                    {%- if block.settings.icon != blank -%}
                       {{
-                        article.image
+                        block.settings.icon
                         | image_url: width: 120
                         | image_tag:
                           loading: 'lazy',
-                          alt: '',
+                          alt: icon_alt,
                           widths: '60, 90, 120'
                       }}
                     {%- else -%}
@@ -97,7 +95,7 @@
                   </span>
 
                   <!-- Title -->
-                  <span class="mz-faq-image__item-title">{{ article.title | escape }}</span>
+                  <span class="mz-faq-image__item-title">{{ block.settings.title | escape }}</span>
 
                   <!-- Chevron -->
                   <span class="mz-faq-image__item-chevron" aria-hidden="true">
@@ -108,18 +106,18 @@
 
                 </summary>
 
-                <!-- Expanded body — article content -->
-                <div class="mz-faq-image__item-body">
-                  {{ article.content }}
-                </div>
+                <!-- Expanded body -->
+                {%- if block.settings.answer != blank -%}
+                  <div class="mz-faq-image__item-body">
+                    {{ block.settings.answer }}
+                  </div>
+                {%- endif -%}
 
               </details>
             {%- endfor -%}
 
           {%- else -%}
-            <p class="mz-faq-image__empty">
-              {{ 'No FAQ blog selected or no articles found.' }}
-            </p>
+            <p class="mz-faq-image__empty">Add FAQ items using the block panel on the left.</p>
           {%- endif -%}
 
         </div><!-- /.mz-faq-image__accordion -->
@@ -180,21 +178,6 @@
       "default": "Wir sind der Meinung, dass Gehen Freude bereiten sollte, weshalb wir unser Schuhwerk sorgfältig entwickelt haben, um Ihre Füße mit langanhaltendem Komfort zu unterstützen."
     },
     {
-      "type": "blog",
-      "id": "faq_blog",
-      "label": "FAQ blog",
-      "info": "Select a blog whose articles will appear as FAQ items. Each article's title becomes the question, its content the answer, and its featured image the icon."
-    },
-    {
-      "type": "range",
-      "id": "articles_limit",
-      "min": 1,
-      "max": 20,
-      "step": 1,
-      "label": "Maximum FAQ items to show",
-      "default": 5
-    },
-    {
       "type": "header",
       "content": "Colors"
     },
@@ -229,9 +212,40 @@
       "default": 60
     }
   ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image",
+          "info": "Displayed inside a circle. Use a square PNG or SVG export."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "Fußgewölbeunterstützung"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Enter the answer to this FAQ item here.</p>"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "MZ – FAQ + Image"
+      "name": "MZ – FAQ + Image",
+      "blocks": [
+        { "type": "faq_item" },
+        { "type": "faq_item" },
+        { "type": "faq_item" }
+      ]
     }
   ]
 }
