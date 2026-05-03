@@ -62,9 +62,10 @@
 
   {%- if picker_type == 'image' -%}
     {%- liquid
+      assign opt_index = option.position | minus: 1
       assign variant_for_value = null
       for variant in product.variants
-        if variant.options[option.position | minus: 1] == value
+        if variant.options[opt_index] == value
           assign variant_for_value = variant
           break
         endif
