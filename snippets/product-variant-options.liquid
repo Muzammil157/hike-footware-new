@@ -60,7 +60,51 @@
 
   {% assign escaped_value = value | escape %}
 
-  {%- if picker_type == 'swatch' -%}
+  {%- if picker_type == 'image' -%}
+    {%- liquid
+      assign variant_for_value = null
+      for variant in product.variants
+        if variant.options[option.position | minus: 1] == value
+          assign variant_for_value = variant
+          break
+        endif
+      endfor
+      assign vi_alt = variant_for_value.featured_image.alt | default: value | escape
+    -%}
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      name="{{ input_name | escape }}"
+      value="{{ escaped_value }}"
+      form="{{ product_form_id }}"
+      class="visually-hidden variant-image-swatch__input"
+      {% if value.selected %}checked{% endif %}
+      {% if option_disabled %}disabled{% endif %}
+      {{ input_dataset }}
+    >
+    <label
+      for="{{ input_id }}"
+      class="variant-image-swatch__label{% if option_disabled %} variant-image-swatch__label--disabled{% endif %}"
+      title="{{ escaped_value }}"
+    >
+      {%- if variant_for_value.featured_image != blank -%}
+        {{
+          variant_for_value.featured_image
+          | image_url: width: 120
+          | image_tag:
+            loading: 'lazy',
+            alt: vi_alt,
+            widths: '60, 80, 100, 120',
+            class: 'variant-image-swatch__img'
+        }}
+      {%- else -%}
+        <span class="variant-image-swatch__text">{{ value }}</span>
+      {%- endif -%}
+      <span class="visually-hidden">{{ value }}</span>
+      {{ label_unavailable }}
+    </label>
+
+  {%- elsif picker_type == 'swatch' -%}
     {%- capture help_text -%}
       <span class="visually-hidden">{{ escaped_value }}</span>
       {{ label_unavailable }}

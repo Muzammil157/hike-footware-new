@@ -1492,3 +1492,128 @@ a.product__text {
     border: none;
   }
 }
+
+/* ============================================
+   Metafield gallery images
+   ============================================ */
+.product__mf-media-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.product__mf-media-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--media-radius, 0);
+}
+
+/* ============================================
+   Lifestyle image grid (desktop only)
+   Shown below thumbnails when metafield gallery
+   is active. Hidden on mobile via small-hide.
+   ============================================ */
+.product__lifestyle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+}
+
+.product__lifestyle-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--media-radius, 0.4rem);
+  object-fit: cover;
+}
+
+/* ============================================
+   Variant image swatch picker
+   ============================================ */
+.product-form__input--image-swatch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  border: none;
+  padding: 0;
+  margin: 0 0 1.2rem 0;
+  max-width: 44rem;
+}
+
+.product-form__input--image-swatch .form__label {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* The radio input is visually hidden but stays in DOM
+   so input:checked + label selector works */
+.variant-image-swatch__input {
+  position: absolute;
+  width: 0.1rem;
+  height: 0.1rem;
+  padding: 0;
+  margin: -0.1rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.variant-image-swatch__label {
+  display: block;
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: 2px solid rgba(var(--color-foreground), 0.15);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.variant-image-swatch__input:checked + .variant-image-swatch__label {
+  border-color: rgb(var(--color-foreground));
+  box-shadow: 0 0 0 1px rgb(var(--color-foreground));
+}
+
+.variant-image-swatch__label--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.variant-image-swatch__label--disabled::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.variant-image-swatch__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.variant-image-swatch__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.4rem;
+  background-color: rgba(var(--color-foreground), 0.06);
+  color: rgb(var(--color-foreground));
+}
+
+@media screen and (max-width: 749px) {
+  .variant-image-swatch__label {
+    width: 6.4rem;
+    height: 6.4rem;
+  }
+}
