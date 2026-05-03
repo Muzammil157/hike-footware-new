@@ -233,9 +233,13 @@
     endif
   -%}
 
+  {%- assign layout_needs_thumbnails = false -%}
+  {%- if section.settings.gallery_layout contains 'thumbnail' or has_mf_gallery -%}
+    {%- assign layout_needs_thumbnails = true -%}
+  {%- endif -%}
   {%- if is_not_limited_to_single_item
     and media_count > 1
-    and (has_mf_gallery or section.settings.gallery_layout contains 'thumbnail')
+    and layout_needs_thumbnails
     or section.settings.mobile_thumbnails == 'show'
   -%}
     <slider-component
