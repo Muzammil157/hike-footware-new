@@ -1,0 +1,324 @@
+/* ============================================
+   MZ Comparison Section
+   Prefix: mz-
+   ============================================ */
+
+/* ---- Outer section (blue bg layer) ---- */
+.mz-comparison {
+  background-color: var(--mz-comp-outer-bg, #e8f0fe);
+  padding-top: var(--mz-comp-padding-top-mobile, 2.4rem);
+  padding-bottom: var(--mz-comp-padding-bottom-mobile, 2.4rem);
+}
+
+@media screen and (min-width: 750px) {
+  .mz-comparison {
+    padding-top: var(--mz-comp-padding-top, 4rem);
+    padding-bottom: var(--mz-comp-padding-bottom, 4rem);
+  }
+}
+
+/* ---- Inner card (white bg + dashed border) ---- */
+.mz-comparison__inner {
+  background-color: var(--mz-comp-inner-bg, #ffffff);
+  border: 2px dashed var(--mz-comp-border-color, #4285f4);
+  border-radius: 1.2rem;
+  padding: 4rem 3.2rem;
+}
+
+/* ---- Centered heading ---- */
+.mz-comparison__heading {
+  text-align: center;
+  margin: 0 0 3.6rem;
+  font-size: clamp(1.8rem, 2.8vw, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   3-COLUMN BODY
+   left | center (connector) | right
+   ============================================ */
+.mz-comparison__body {
+  display: grid;
+  grid-template-columns: 1fr 9rem 1fr;
+  gap: 0 2.4rem;
+  align-items: stretch;
+}
+
+/* ---- Column labels ---- */
+.mz-comparison__col-label {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.6rem;
+  color: rgb(var(--color-foreground));
+}
+
+/* ---- Card columns ---- */
+.mz-comparison__col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.mz-comparison__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 0.8rem;
+  position: relative;
+}
+
+/* Problem card – pink tint */
+.mz-comparison__card--problem {
+  background-color: #fff5f5;
+}
+
+/* Horizontal line from problem card toward center */
+.mz-comparison__card--problem::after {
+  content: '';
+  position: absolute;
+  right: -2.4rem;
+  width: 2.4rem;
+  top: 50%;
+  height: 1.5px;
+  background: linear-gradient(to right, rgba(248, 113, 113, 0.5), rgba(248, 113, 113, 0.1));
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Solution card – blue-gray tint */
+.mz-comparison__card--solution {
+  background-color: #f0f4f8;
+}
+
+/* Horizontal line from solution card toward center */
+.mz-comparison__card--solution::before {
+  content: '';
+  position: absolute;
+  left: -2.4rem;
+  width: 2.4rem;
+  top: 50%;
+  height: 1.5px;
+  background: linear-gradient(to left, rgba(96, 165, 250, 0.5), rgba(96, 165, 250, 0.1));
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Badge icons */
+.mz-comparison__badge {
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+}
+
+.mz-comparison__badge svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.mz-comparison__badge--x {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+.mz-comparison__badge--check {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+.mz-comparison__card-heading {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: rgb(var(--color-foreground));
+  line-height: 1.3;
+}
+
+.mz-comparison__card-text {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: rgb(var(--color-foreground) / 0.7);
+}
+
+/* ============================================
+   CENTER CONNECTOR COLUMN
+   ============================================ */
+.mz-comparison__center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Vertical dashed line */
+.mz-comparison__center::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  transform: translateX(-1px);
+  width: 0;
+  border-left: 2px dashed rgba(0, 0, 0, 0.12);
+  z-index: 0;
+}
+
+/* ---- Shoe icon circle ---- */
+.mz-comparison__center-icon-wrap {
+  position: relative;
+  z-index: 3;
+  width: 6.4rem;
+  height: 6.4rem;
+  background-color: var(--mz-comp-icon-bg, #0d2d5e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 0 0 8px rgba(13, 45, 94, 0.12), 0 0 0 16px rgba(13, 45, 94, 0.06);
+}
+
+.mz-comparison__center-icon-img {
+  width: 3.2rem;
+  height: 3.2rem;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.mz-comparison__center-icon-svg {
+  width: 2.8rem;
+  height: 2.8rem;
+  fill: #ffffff;
+}
+
+/* ---- Dots distributed along the vertical line ---- */
+.mz-comparison__dots {
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  z-index: 2;
+}
+
+.mz-comparison__dots--left {
+  right: calc(50% + 3px);
+  align-items: flex-end;
+}
+
+.mz-comparison__dots--right {
+  left: calc(50% + 3px);
+  align-items: flex-start;
+}
+
+.mz-comparison__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid;
+  background-color: var(--mz-comp-inner-bg, #ffffff);
+  flex-shrink: 0;
+}
+
+.mz-comparison__dots--left .mz-comparison__dot {
+  border-color: #fca5a5;
+}
+
+.mz-comparison__dots--right .mz-comparison__dot {
+  border-color: #93c5fd;
+}
+
+/* ============================================
+   MOBILE — single column stack
+   ============================================ */
+@media screen and (max-width: 749px) {
+  .mz-comparison__inner {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .mz-comparison__heading {
+    font-size: 2.2rem;
+    margin-bottom: 2.4rem;
+    text-align: left;
+  }
+
+  /* Flatten to a single column */
+  .mz-comparison__body {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* Mobile order */
+  .mz-comparison__col--left  { order: 1; }
+  .mz-comparison__center     { order: 2; padding: 2.4rem 0; }
+  .mz-comparison__col--right { order: 3; }
+
+  /* Hide lines and dots on mobile */
+  .mz-comparison__card--problem::after,
+  .mz-comparison__card--solution::before,
+  .mz-comparison__dots,
+  .mz-comparison__center::before {
+    display: none;
+  }
+
+  /* Simplify center column on mobile */
+  .mz-comparison__center {
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: center;
+    border-top: 1px dashed rgba(0, 0, 0, 0.12);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.12);
+  }
+
+  .mz-comparison__center-icon-wrap {
+    position: static;
+    margin: 0 auto;
+  }
+
+  .mz-comparison__mobile-solution-labels {
+    text-align: center;
+  }
+
+  .mz-comparison__mobile-label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mz-comp-border-color, #4285f4);
+    margin-bottom: 0.4rem;
+  }
+
+  .mz-comparison__mobile-subheading {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: rgb(var(--color-foreground));
+    margin: 0;
+  }
+
+  .mz-comparison__col--right .mz-comparison__col-label {
+    /* hide desktop right col label on mobile — mobile uses the icon area label instead */
+    display: none;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  /* Hide mobile-only labels on desktop */
+  .mz-comparison__mobile-solution-labels {
+    display: none;
+  }
+}
