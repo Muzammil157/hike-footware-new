@@ -142,6 +142,7 @@
         "faq_item_4k7qVL": {
           "type": "faq_item",
           "settings": {
+            "icon": "shopify://shop_images/Arch_Support_100x_1.svg",
             "title": "Fußgewölbeunterstützung",
             "answer": "<p>Enter the answer to this FAQ item here.</p>"
           }
