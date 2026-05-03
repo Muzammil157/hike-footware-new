@@ -32,7 +32,7 @@
   align-items: start;
 }
 
-.mz-trust__area-heading   { grid-area: heading; }
+.mz-trust__area-heading   { grid-area: heading; align-self: end; }
 .mz-trust__area-paragraph { grid-area: paragraph; }
 .mz-trust__area-image     { grid-area: image; }
 .mz-trust__area-stats     { grid-area: stats; }
