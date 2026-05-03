@@ -1,0 +1,116 @@
+{{ 'section-mz-split-images.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --mz-split-aspect: {{ section.settings.image_aspect_ratio }};
+    --mz-split-gap: {{ section.settings.gap }}px;
+    --mz-split-radius: {% if section.settings.image_rounded %}1.2rem{% else %}0px{% endif %};
+  }
+{%- endstyle -%}
+
+{%- assign img1_alt = section.settings.image_1.alt | escape -%}
+{%- assign img2_alt = section.settings.image_2.alt | escape -%}
+
+<div class="mz-split-images color-{{ section.settings.color_scheme }} gradient">
+  <div class="mz-split-images__grid">
+
+    <!-- Image 1 -->
+    <div class="mz-split-images__item">
+      {%- if section.settings.image_1 != blank -%}
+        {{
+          section.settings.image_1
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            class: 'mz-split-images__img',
+            alt: img1_alt,
+            widths: '400, 600, 800, 1000, 1200',
+            sizes: '(max-width: 749px) 100vw, 50vw'
+        }}
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'mz-split-images__img mz-split-images__img--placeholder' }}
+      {%- endif -%}
+    </div>
+
+    <!-- Image 2 -->
+    <div class="mz-split-images__item">
+      {%- if section.settings.image_2 != blank -%}
+        {{
+          section.settings.image_2
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            class: 'mz-split-images__img',
+            alt: img2_alt,
+            widths: '400, 600, 800, 1000, 1200',
+            sizes: '(max-width: 749px) 100vw, 50vw'
+        }}
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'mz-split-images__img mz-split-images__img--placeholder' }}
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "MZ – Split Images",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Left image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Right image"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "50%",     "label": "2:1 (wide)" },
+        { "value": "56.25%",  "label": "16:9" },
+        { "value": "66.67%",  "label": "3:2" },
+        { "value": "75%",     "label": "4:3" },
+        { "value": "100%",    "label": "1:1 (square)" },
+        { "value": "125%",    "label": "4:5 (portrait)" },
+        { "value": "133.33%", "label": "3:4 (portrait)" }
+      ],
+      "default": "66.67%"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Gap between images",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "image_rounded",
+      "label": "Rounded corners",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MZ – Split Images"
+    }
+  ]
+}
+{% endschema %}

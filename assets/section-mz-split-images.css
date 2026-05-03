@@ -1,0 +1,58 @@
+/* ============================================
+   MZ Split Images Section
+   Prefix: mz-
+   ============================================ */
+
+.mz-split-images {
+  overflow: hidden;
+}
+
+/* ---- Two equal columns, no page-width wrapper ---- */
+.mz-split-images__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--mz-split-gap, 4px);
+}
+
+/* ---- Each image slot uses padding-bottom trick for equal height ---- */
+.mz-split-images__item {
+  position: relative;
+  width: 100%;
+  padding-bottom: var(--mz-split-aspect, 66.67%);
+  overflow: hidden;
+  border-radius: var(--mz-split-radius, 0px);
+  background-color: rgb(var(--color-foreground) / 0.06);
+}
+
+.mz-split-images__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.mz-split-images__img--placeholder {
+  padding: 4rem;
+}
+
+.mz-split-images__img--placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
+   Mobile — stack vertically, still 50/50 height
+   ============================================ */
+@media screen and (max-width: 749px) {
+  .mz-split-images__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* On mobile, each image fills full width at the same aspect ratio */
+  .mz-split-images__item {
+    padding-bottom: var(--mz-split-aspect, 66.67%);
+  }
+}
