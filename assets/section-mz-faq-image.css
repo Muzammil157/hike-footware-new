@@ -1,0 +1,250 @@
+/* ============================================
+   MZ FAQ + Image Section
+   Prefix: mz-
+   ============================================ */
+
+/* ---- Outer wrapper ---- */
+.mz-faq-image {
+  padding-top: var(--mz-faq-padding-top-mobile);
+  padding-bottom: var(--mz-faq-padding-bottom-mobile);
+}
+
+@media screen and (min-width: 750px) {
+  .mz-faq-image {
+    padding-top: var(--mz-faq-padding-top);
+    padding-bottom: var(--mz-faq-padding-bottom);
+  }
+}
+
+/* ---- Two-column grid ---- */
+.mz-faq-image__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.8rem 6rem;
+  align-items: start;
+}
+
+/* ============================================
+   LEFT COLUMN
+   ============================================ */
+
+.mz-faq-image__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.mz-faq-image__heading {
+  margin: 0;
+  font-size: clamp(2.4rem, 3vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.mz-faq-image__image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--mz-faq-image-radius, 0px);
+}
+
+.mz-faq-image__image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ============================================
+   RIGHT COLUMN
+   ============================================ */
+
+.mz-faq-image__right {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.mz-faq-image__subheading {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.65;
+  color: rgb(var(--color-foreground) / 0.85);
+}
+
+/* ============================================
+   ACCORDION / FAQ ITEMS
+   ============================================ */
+
+.mz-faq-image__accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.mz-faq-image__item {
+  border-bottom: 1px solid rgb(var(--color-foreground) / 0.12);
+  list-style: none;
+}
+
+.mz-faq-image__item:first-child {
+  border-top: 1px solid rgb(var(--color-foreground) / 0.12);
+}
+
+/* Remove default marker on summary */
+.mz-faq-image__item-header {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.8rem 0;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mz-faq-image__item-header::-webkit-details-marker {
+  display: none;
+}
+
+.mz-faq-image__item-header::marker {
+  display: none;
+}
+
+/* Icon circle */
+.mz-faq-image__item-icon {
+  flex-shrink: 0;
+  width: 4.4rem;
+  height: 4.4rem;
+  border: 1.5px solid rgb(var(--color-foreground) / 0.6);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mz-faq-image__item-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.6rem;
+}
+
+.mz-faq-image__item-icon-placeholder {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.4;
+}
+
+/* Title */
+.mz-faq-image__item-title {
+  flex: 1;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgb(var(--color-foreground));
+  letter-spacing: 0.01em;
+}
+
+/* Chevron arrow */
+.mz-faq-image__item-chevron {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--color-foreground) / 0.6);
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.mz-faq-image__item-chevron svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+details[open] .mz-faq-image__item-chevron {
+  transform: rotate(90deg);
+  color: rgb(var(--color-foreground));
+}
+
+/* Expanded content */
+.mz-faq-image__item-body {
+  overflow: hidden;
+  padding-bottom: 1.8rem;
+  padding-left: 6rem; /* align under title, past icon */
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: rgb(var(--color-foreground) / 0.8);
+  animation: mz-faq-open 0.25s ease;
+}
+
+.mz-faq-image__item-body p:first-child {
+  margin-top: 0;
+}
+
+.mz-faq-image__item-body p:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes mz-faq-open {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Empty state */
+.mz-faq-image__empty {
+  font-size: 1.4rem;
+  color: rgb(var(--color-foreground) / 0.5);
+  padding: 2rem 0;
+}
+
+/* ============================================
+   MOBILE — single column, image hidden
+   ============================================ */
+@media screen and (max-width: 749px) {
+  .mz-faq-image__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  /* Heading (inside left col) appears first — left col is rendered first in DOM */
+  .mz-faq-image__left {
+    gap: 0; /* remove gap so image (hidden) takes no space */
+  }
+
+  /* Hide image on mobile */
+  .mz-faq-image__image-wrapper {
+    display: none;
+  }
+
+  .mz-faq-image__heading {
+    font-size: 2.8rem;
+    margin-bottom: 0;
+  }
+
+  .mz-faq-image__right {
+    gap: 2.4rem;
+  }
+
+  .mz-faq-image__item-body {
+    padding-left: 0;
+  }
+
+  .mz-faq-image__item-icon {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .mz-faq-image__item-title {
+    font-size: 1.6rem;
+  }
+
+  .mz-faq-image__subheading {
+    font-size: 1.6rem;
+  }
+}

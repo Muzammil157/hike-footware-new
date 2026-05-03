@@ -1,0 +1,238 @@
+{{ 'section-mz-faq-image.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --mz-faq-padding-top: {{ section.settings.padding_top }}px;
+    --mz-faq-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mz-faq-padding-top-mobile: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --mz-faq-padding-bottom-mobile: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    --mz-faq-image-radius: {% if section.settings.image_rounded %}1.2rem{% else %}0px{% endif %};
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign faq_blog = section.settings.faq_blog
+  assign articles_limit = section.settings.articles_limit
+-%}
+
+<div class="mz-faq-image color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="mz-faq-image__grid">
+
+      <!-- ============================
+           LEFT COLUMN: Heading + Image
+           ============================ -->
+      <div class="mz-faq-image__left">
+
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="mz-faq-image__heading">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+
+        <div class="mz-faq-image__image-wrapper">
+          {%- if section.settings.image != blank -%}
+            {{
+              section.settings.image
+              | image_url: width: 800
+              | image_tag:
+                loading: 'lazy',
+                class: 'mz-faq-image__img',
+                alt: section.settings.image.alt | escape,
+                widths: '400, 600, 800',
+                sizes: '(max-width: 749px) 100vw, 50vw'
+            }}
+          {%- else -%}
+            {{ 'detailed-apparel-1' | placeholder_svg_tag: 'mz-faq-image__img' }}
+          {%- endif -%}
+        </div>
+
+      </div>
+
+      <!-- ============================
+           RIGHT COLUMN: Text + FAQ
+           ============================ -->
+      <div class="mz-faq-image__right">
+
+        {%- if section.settings.subheading != blank -%}
+          <p class="mz-faq-image__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+
+        <div class="mz-faq-image__accordion">
+
+          {%- if faq_blog != blank and faq_blog.articles_count > 0 -%}
+
+            {%- for article in faq_blog.articles limit: articles_limit -%}
+              <details class="mz-faq-image__item">
+                <summary class="mz-faq-image__item-header">
+
+                  <!-- Icon: article featured image inside a circle -->
+                  <span class="mz-faq-image__item-icon" aria-hidden="true">
+                    {%- if article.image != blank -%}
+                      {{
+                        article.image
+                        | image_url: width: 120
+                        | image_tag:
+                          loading: 'lazy',
+                          alt: '',
+                          widths: '60, 90, 120'
+                      }}
+                    {%- else -%}
+                      <svg
+                        class="mz-faq-image__item-icon-placeholder"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="16"/>
+                        <line x1="8" y1="12" x2="16" y2="12"/>
+                      </svg>
+                    {%- endif -%}
+                  </span>
+
+                  <!-- Title -->
+                  <span class="mz-faq-image__item-title">{{ article.title | escape }}</span>
+
+                  <!-- Chevron -->
+                  <span class="mz-faq-image__item-chevron" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                  </span>
+
+                </summary>
+
+                <!-- Expanded body — article content -->
+                <div class="mz-faq-image__item-body">
+                  {{ article.content }}
+                </div>
+
+              </details>
+            {%- endfor -%}
+
+          {%- else -%}
+            <p class="mz-faq-image__empty">
+              {{ 'No FAQ blog selected or no articles found.' }}
+            </p>
+          {%- endif -%}
+
+        </div><!-- /.mz-faq-image__accordion -->
+
+      </div><!-- /.mz-faq-image__right -->
+
+    </div><!-- /.mz-faq-image__grid -->
+  </div><!-- /.page-width -->
+</div><!-- /.mz-faq-image -->
+
+{% schema %}
+{
+  "name": "MZ – FAQ + Image",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Left column"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ultimativer Komfort: Schuhe, die sich Ihren Füßen anpassen"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "p",  "label": "Paragraph" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_rounded",
+      "label": "Rounded image corners",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Right column"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Description text",
+      "default": "Wir sind der Meinung, dass Gehen Freude bereiten sollte, weshalb wir unser Schuhwerk sorgfältig entwickelt haben, um Ihre Füße mit langanhaltendem Komfort zu unterstützen."
+    },
+    {
+      "type": "blog",
+      "id": "faq_blog",
+      "label": "FAQ blog",
+      "info": "Select a blog whose articles will appear as FAQ items. Each article's title becomes the question, its content the answer, and its featured image the icon."
+    },
+    {
+      "type": "range",
+      "id": "articles_limit",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "label": "Maximum FAQ items to show",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "MZ – FAQ + Image"
+    }
+  ]
+}
+{% endschema %}
