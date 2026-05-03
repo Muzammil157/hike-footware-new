@@ -280,6 +280,92 @@
         "image_rounded": false,
         "color_scheme": ""
       }
+    },
+    "mz_comparison_7U4kiE": {
+      "type": "mz-comparison",
+      "blocks": {
+        "problem_DcKXFr": {
+          "type": "problem",
+          "settings": {
+            "heading": "Lange Stunden auf den Beinen",
+            "text": "Langes Stehen oder Gehen belastet Ihre Gelenke und Muskeln."
+          }
+        },
+        "problem_wdxpm4": {
+          "type": "problem",
+          "settings": {
+            "heading": "Fersenschmerzen & Plantarfasziitis",
+            "text": "Stechende Schmerzen bei jedem Schritt, besonders morgens."
+          }
+        },
+        "problem_jgHYQE": {
+          "type": "problem",
+          "settings": {
+            "heading": "Flache Füße / wenig Halt",
+            "text": "Zu wenig Halt verursacht Fehlstellungen & Schmerzen."
+          }
+        },
+        "problem_wchLYC": {
+          "type": "problem",
+          "settings": {
+            "heading": "Enges, einschränkendes Schuhwerk",
+            "text": "Schmale Designs schränken die Bewegung ein und verursachen Druckstellen."
+          }
+        },
+        "solution_VcM8VY": {
+          "type": "solution",
+          "settings": {
+            "heading": "Druckentlastende Polsterung",
+            "text": "Absorbiert Stöße, um Stress auf Füße, Knie und Gelenke zu reduzieren."
+          }
+        },
+        "solution_w4P7mU": {
+          "type": "solution",
+          "settings": {
+            "heading": "Gezielte Fersenunterstützung",
+            "text": "Entwickelt, um Schmerzen und Belastungen bei jedem Schritt zu reduzieren."
+          }
+        },
+        "solution_ptW3a6": {
+          "type": "solution",
+          "settings": {
+            "heading": "Integrierte Fußgewölbeunterstützung",
+            "text": "Fördert die richtige Ausrichtung und verbessert die allgemeine Körperhaltung."
+          }
+        },
+        "solution_h7GDGE": {
+          "type": "solution",
+          "settings": {
+            "heading": "Breites, flexibles Design",
+            "text": "Gibt Ihren Zehen Raum, sich natürlich und ohne Einschränkung zu bewegen."
+          }
+        }
+      },
+      "block_order": [
+        "problem_DcKXFr",
+        "problem_wdxpm4",
+        "problem_jgHYQE",
+        "problem_wchLYC",
+        "solution_VcM8VY",
+        "solution_w4P7mU",
+        "solution_ptW3a6",
+        "solution_h7GDGE"
+      ],
+      "name": "MZ – Comparison",
+      "settings": {
+        "heading": "Fußschmerzen halten Sie zurück. Hier ist die Lösung.",
+        "heading_tag": "h2",
+        "left_col_label": "Haben Sie Fußschmerzen?",
+        "right_col_label": "Die Luviwear-Lösung:",
+        "mobile_solution_label": "Die Luviwear-Lösung",
+        "mobile_solution_heading": "Für mehr Komfort – jeden Schritt.",
+        "icon_bg_color": "#0d2d5e",
+        "outer_bg_color": "#e8f0fe",
+        "inner_bg_color": "#ffffff",
+        "border_color": "#4285f4",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
     }
   },
   "order": [
@@ -288,6 +374,7 @@
     "mz_image_marquee_Rd7GNQ",
     "mz_faq_image_BCwVXM",
     "mz_trust_features_cwJgie",
-    "mz_split_images_FhCp7K"
+    "mz_split_images_FhCp7K",
+    "mz_comparison_7U4kiE"
   ]
 }
