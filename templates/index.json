@@ -135,11 +135,54 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "mz_faq_image_BCwVXM": {
+      "type": "mz-faq-image",
+      "blocks": {
+        "faq_item_4k7qVL": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Fußgewölbeunterstützung",
+            "answer": "<p>Enter the answer to this FAQ item here.</p>"
+          }
+        },
+        "faq_item_R8RRPc": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Fußgewölbeunterstützung",
+            "answer": "<p>Enter the answer to this FAQ item here.</p>"
+          }
+        },
+        "faq_item_AGjdmb": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Fußgewölbeunterstützung",
+            "answer": "<p>Enter the answer to this FAQ item here.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_4k7qVL",
+        "faq_item_R8RRPc",
+        "faq_item_AGjdmb"
+      ],
+      "name": "MZ – FAQ + Image",
+      "settings": {
+        "heading": "Ultimativer Komfort: Schuhe, die sich Ihren Füßen anpassen",
+        "heading_tag": "h2",
+        "image": "shopify://shop_images/0Q5A0248.jpg",
+        "image_rounded": true,
+        "subheading": "Wir sind der Meinung, dass Gehen Freude bereiten sollte, weshalb wir unser Schuhwerk sorgfältig entwickelt haben, um Ihre Füße mit langanhaltendem Komfort zu unterstützen.",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "mz_image_marquee_Rd7GNQ"
+    "mz_image_marquee_Rd7GNQ",
+    "mz_faq_image_BCwVXM"
   ]
 }
