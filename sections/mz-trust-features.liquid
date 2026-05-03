@@ -1,0 +1,278 @@
+{{ 'section-mz-trust-features.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --mz-trust-padding-top: {{ section.settings.padding_top }}px;
+    --mz-trust-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mz-trust-padding-top-mobile: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --mz-trust-padding-bottom-mobile: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    --mz-trust-image-radius: {% if section.settings.image_rounded %}1.2rem{% else %}0px{% endif %};
+    --mz-trust-stat-color: {{ section.settings.stat_value_color }};
+    --mz-trust-check-color: {{ section.settings.checkmark_color }};
+  }
+{%- endstyle -%}
+
+{%- assign stat_blocks    = section.blocks | where: 'type', 'stat' -%}
+{%- assign feature_blocks = section.blocks | where: 'type', 'feature' -%}
+
+<div class="mz-trust color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="mz-trust__grid">
+
+      <!-- ========================
+           AREA: Heading
+           ======================== -->
+      <div class="mz-trust__area-heading">
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="mz-trust__heading">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+      </div>
+
+      <!-- ========================
+           AREA: Paragraph
+           ======================== -->
+      <div class="mz-trust__area-paragraph">
+        {%- if section.settings.paragraph != blank -%}
+          <div class="mz-trust__paragraph">{{ section.settings.paragraph }}</div>
+        {%- endif -%}
+      </div>
+
+      <!-- ========================
+           AREA: Image
+           ======================== -->
+      <div class="mz-trust__area-image">
+        <div class="mz-trust__image-wrapper">
+          {%- if section.settings.image != blank -%}
+            {%- assign image_alt = section.settings.image.alt | escape -%}
+            {{
+              section.settings.image
+              | image_url: width: 900
+              | image_tag:
+                loading: 'lazy',
+                alt: image_alt,
+                widths: '400, 600, 800, 900',
+                sizes: '(max-width: 749px) 100vw, 50vw'
+            }}
+          {%- else -%}
+            {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- ========================
+           AREA: Stats (2×2 grid)
+           ======================== -->
+      {%- if stat_blocks.size > 0 -%}
+        <div class="mz-trust__area-stats">
+          <div class="mz-trust__stats">
+            {%- for block in stat_blocks -%}
+              <div class="mz-trust__stat" {{ block.shopify_attributes }}>
+                {%- if block.settings.value != blank -%}
+                  <p class="mz-trust__stat-value"
+                    {%- if block.settings.value_color != blank and block.settings.value_color != 'rgba(0,0,0,0)' %}
+                      style="color: {{ block.settings.value_color }};"
+                    {%- endif %}>
+                    {{ block.settings.value | escape }}
+                  </p>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <p class="mz-trust__stat-desc">{{ block.settings.description | escape }}</p>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      <!-- ========================
+           AREA: Feature badges
+           ======================== -->
+      {%- if feature_blocks.size > 0 -%}
+        <div class="mz-trust__area-features">
+          <ul class="mz-trust__features list-unstyled" role="list">
+            {%- for block in feature_blocks -%}
+              <li class="mz-trust__feature" {{ block.shopify_attributes }}>
+                <span class="mz-trust__feature-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span>{{ block.settings.text | escape }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+    </div><!-- /.mz-trust__grid -->
+  </div><!-- /.page-width -->
+</div><!-- /.mz-trust -->
+
+{% schema %}
+{
+  "name": "MZ – Trust + Features",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Vertraut von über 2.400 Podologen landesweit"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "p",  "label": "Paragraph" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product image"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_rounded",
+      "label": "Rounded corners",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Description"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "Paragraph text",
+      "default": "<p>Luviwear ist nicht nur bequem – es ist klinisch gestaltet. Unser Team hat eng mit Podologen, Physiotherapeuten und Geriatriespezialisten zusammengearbeitet.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Stat colors"
+    },
+    {
+      "type": "color",
+      "id": "stat_value_color",
+      "label": "Default stat value color",
+      "default": "#1a2b6b",
+      "info": "Applied to all stat values unless overridden per block"
+    },
+    {
+      "type": "header",
+      "content": "Feature badges"
+    },
+    {
+      "type": "color",
+      "id": "checkmark_color",
+      "label": "Checkmark color",
+      "default": "#2d7a3a"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Stat value",
+          "default": "2.400+",
+          "info": "The large highlighted number or text (e.g. '94%', 'APMA')"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Podologen, die Luviwear empfehlen"
+        },
+        {
+          "type": "color",
+          "id": "value_color",
+          "label": "Value color override",
+          "info": "Leave blank to use the section default stat color"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Feature badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature text",
+          "default": "Von der APMA akzeptiert"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MZ – Trust + Features",
+      "blocks": [
+        { "type": "stat",    "settings": { "value": "2.400+",    "description": "Podologen, die Luviwear empfehlen" } },
+        { "type": "stat",    "settings": { "value": "94%",        "description": "Weniger Fußschmerzen nach 2 Wochen." } },
+        { "type": "stat",    "settings": { "value": "APMA",       "description": "Accepted Seal – beide Produkte" } },
+        { "type": "stat",    "settings": { "value": "18 Monate",  "description": "Durchschnittliche klinische Entwicklungszeit" } },
+        { "type": "feature", "settings": { "text": "Von der APMA akzeptiert" } },
+        { "type": "feature", "settings": { "text": "Von Geriatriespezialisten empfohlen" } },
+        { "type": "feature", "settings": { "text": "FDA-konform" } },
+        { "type": "feature", "settings": { "text": "Von Podologen entworfen" } },
+        { "type": "feature", "settings": { "text": "Klinisch getestet" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
