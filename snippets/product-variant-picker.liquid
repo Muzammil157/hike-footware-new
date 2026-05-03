@@ -27,17 +27,28 @@
           endif
         endif
 
-        # Auto-upgrade to image swatch if variants have featured images and
-        # the picker is not already a dropdown.
+        # Auto-upgrade to image swatch only when the values for THIS option
+        # each map to a different featured image. This ensures size options
+        # (all values share one image) stay as pill buttons, while colour
+        # options (each value has its own image) become image swatches.
         unless picker_type == 'dropdown' or picker_type == 'swatch_dropdown'
-          assign has_variant_images = false
-          for variant in product.variants
-            if variant.featured_image != blank
-              assign has_variant_images = true
-              break
-            endif
+          assign opt_index = option.position | minus: 1
+          assign vi_ids = ''
+          for val in option.values
+            for variant in product.variants
+              if variant.options[opt_index] == val
+                if variant.featured_image != blank
+                  assign id_str = variant.featured_image.id | append: ','
+                  unless vi_ids contains id_str
+                    assign vi_ids = vi_ids | append: id_str
+                  endunless
+                endif
+                break
+              endif
+            endfor
           endfor
-          if has_variant_images
+          assign unique_vi_count = vi_ids | split: ',' | size | minus: 1
+          if unique_vi_count > 1
             assign picker_type = 'image'
           endif
         endunless
