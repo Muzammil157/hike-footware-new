@@ -178,12 +178,103 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "mz_trust_features_cwJgie": {
+      "type": "mz-trust-features",
+      "blocks": {
+        "stat_mLeENC": {
+          "type": "stat",
+          "settings": {
+            "value": "2.400+",
+            "description": "Podologen, die Luviwear empfehlen",
+            "value_color": ""
+          }
+        },
+        "stat_W6mrWY": {
+          "type": "stat",
+          "settings": {
+            "value": "94%",
+            "description": "Weniger Fußschmerzen nach 2 Wochen.",
+            "value_color": ""
+          }
+        },
+        "stat_h3hjqk": {
+          "type": "stat",
+          "settings": {
+            "value": "APMA",
+            "description": "Accepted Seal – beide Produkte",
+            "value_color": ""
+          }
+        },
+        "stat_9LMzL3": {
+          "type": "stat",
+          "settings": {
+            "value": "18 Monate",
+            "description": "Durchschnittliche klinische Entwicklungszeit",
+            "value_color": ""
+          }
+        },
+        "feature_yYYpkq": {
+          "type": "feature",
+          "settings": {
+            "text": "Von der APMA akzeptiert"
+          }
+        },
+        "feature_CEE8GE": {
+          "type": "feature",
+          "settings": {
+            "text": "Von Geriatriespezialisten empfohlen"
+          }
+        },
+        "feature_xAArDn": {
+          "type": "feature",
+          "settings": {
+            "text": "FDA-konform"
+          }
+        },
+        "feature_4W3UTf": {
+          "type": "feature",
+          "settings": {
+            "text": "Von Podologen entworfen"
+          }
+        },
+        "feature_TPQiJK": {
+          "type": "feature",
+          "settings": {
+            "text": "Klinisch getestet"
+          }
+        }
+      },
+      "block_order": [
+        "stat_mLeENC",
+        "stat_W6mrWY",
+        "stat_h3hjqk",
+        "stat_9LMzL3",
+        "feature_yYYpkq",
+        "feature_CEE8GE",
+        "feature_xAArDn",
+        "feature_4W3UTf",
+        "feature_TPQiJK"
+      ],
+      "name": "MZ – Trust + Features",
+      "settings": {
+        "heading": "Vertraut von über 2.400 Podologen landesweit",
+        "heading_tag": "h2",
+        "image_rounded": false,
+        "paragraph": "<p>Luviwear ist nicht nur bequem – es ist klinisch gestaltet. Unser Team hat eng mit Podologen, Physiotherapeuten und Geriatriespezialisten zusammengearbeitet, um Schuhe zu entwickeln, die den tatsächlichen biomechanischen Bedürfnissen alternder Füße gerecht werden. Sowohl der Ergonomische Barfußschuh als auch der Hike Ultra Prime haben das Accepted Seal der American Podiatric Medical Association (APMA) erhalten – eine unabhängige Auszeichnung, die nur Produkten verliehen wird, die eine gute Fußgesundheit fördern.</p>",
+        "stat_value_color": "#1a2b6b",
+        "checkmark_color": "#2d7a3a",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
     "mz_image_marquee_Rd7GNQ",
-    "mz_faq_image_BCwVXM"
+    "mz_faq_image_BCwVXM",
+    "mz_trust_features_cwJgie"
   ]
 }
