@@ -366,6 +366,59 @@
         "padding_top": 48,
         "padding_bottom": 48
       }
+    },
+    "mz_condition_list_7gyFcr": {
+      "type": "mz-condition-list",
+      "blocks": {
+        "feature_item_mqJkpm": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Fußschmerzen"
+          }
+        },
+        "feature_item_fGcXdN": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Plantarfasziitis"
+          }
+        },
+        "feature_item_Y9ndbk": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Diabetes"
+          }
+        },
+        "feature_item_ViKM8C": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Hallux Valgus"
+          }
+        },
+        "feature_item_NnzRwC": {
+          "type": "feature_item",
+          "settings": {
+            "label": "Plattfüße"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_mqJkpm",
+        "feature_item_fGcXdN",
+        "feature_item_Y9ndbk",
+        "feature_item_ViKM8C",
+        "feature_item_NnzRwC"
+      ],
+      "name": "MZ – Condition List",
+      "settings": {
+        "heading": "Hilfe bei alltäglichen Beschwerden",
+        "heading_tag": "h2",
+        "paragraph": "<p>Gesunde Füße sind die Grundlage für gesunde Bewegungen. Uviwear-Schuhe unterstützen die natürliche Bewegung und helfen Ihrem Körper, sich neu auszurichten und sich mühelos zu bewegen.</p>",
+        "image": "shopify://shop_images/0Q5A0087.jpg",
+        "image_rounded": true,
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -375,6 +428,7 @@
     "mz_faq_image_BCwVXM",
     "mz_trust_features_cwJgie",
     "mz_split_images_FhCp7K",
-    "mz_comparison_7U4kiE"
+    "mz_comparison_7U4kiE",
+    "mz_condition_list_7gyFcr"
   ]
 }
