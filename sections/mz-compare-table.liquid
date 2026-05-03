@@ -1,0 +1,417 @@
+{{ 'section-mz-compare-table.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --mz-ct-padding-top: {{ section.settings.padding_top }}px;
+    --mz-ct-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mz-ct-padding-top-mobile: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --mz-ct-padding-bottom-mobile: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    --mz-ct-col1-color: {{ section.settings.col1_title_color }};
+    --mz-ct-check-color: {{ section.settings.check_color }};
+    --mz-ct-dash-color: {{ section.settings.dash_color }};
+  }
+{%- endstyle -%}
+
+{%- assign row_blocks   = section.blocks | where: 'type', 'row' -%}
+{%- assign panel1_alt   = section.settings.panel1_image.alt | escape -%}
+{%- assign panel2_alt   = section.settings.panel2_image.alt | escape -%}
+
+{%- comment -%} SVG icons {%- endcomment -%}
+{%- capture icon_check -%}
+  <span class="mz-ct__icon mz-ct__icon--check" aria-label="Included">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </span>
+{%- endcapture -%}
+
+{%- capture icon_dash -%}
+  <span class="mz-ct__icon mz-ct__icon--dash" aria-label="Not included">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+      <line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+  </span>
+{%- endcapture -%}
+
+<div class="mz-ct color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="mz-ct__layout">
+
+      <!-- ========================
+           AREA: Heading
+           ======================== -->
+      <div class="mz-ct__area-heading">
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="mz-ct__heading">
+            {{ section.settings.heading | escape }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+      </div>
+
+      <!-- ========================
+           AREA: Description (right top)
+           ======================== -->
+      <div class="mz-ct__area-desc">
+        {%- if section.settings.description != blank -%}
+          <div class="mz-ct__desc">{{ section.settings.description }}</div>
+        {%- endif -%}
+      </div>
+
+      <!-- ========================
+           AREA: Comparison Table
+           ======================== -->
+      <div class="mz-ct__area-table">
+        <div class="mz-ct__table-wrap">
+          <table class="mz-ct__table" role="table">
+            <thead class="mz-ct__thead">
+              <tr>
+                <!-- Empty corner -->
+                <th class="mz-ct__corner" scope="col"></th>
+
+                <!-- Column 1 (featured) -->
+                <th class="mz-ct__col-header" scope="col">
+                  <span class="mz-ct__col-title mz-ct__col-title--featured">{{ section.settings.col1_title | escape }}</span>
+                  {%- if section.settings.col1_subtitle != blank -%}
+                    <span class="mz-ct__col-sub">{{ section.settings.col1_subtitle | escape }}</span>
+                  {%- endif -%}
+                </th>
+
+                <!-- Column 2 -->
+                <th class="mz-ct__col-header" scope="col">
+                  <span class="mz-ct__col-title">{{ section.settings.col2_title | escape }}</span>
+                  {%- if section.settings.col2_subtitle != blank -%}
+                    <span class="mz-ct__col-sub">{{ section.settings.col2_subtitle | escape }}</span>
+                  {%- endif -%}
+                </th>
+
+                <!-- Column 3 -->
+                <th class="mz-ct__col-header" scope="col">
+                  <span class="mz-ct__col-title">{{ section.settings.col3_title | escape }}</span>
+                  {%- if section.settings.col3_subtitle != blank -%}
+                    <span class="mz-ct__col-sub">{{ section.settings.col3_subtitle | escape }}</span>
+                  {%- endif -%}
+                </th>
+              </tr>
+            </thead>
+
+            <tbody class="mz-ct__tbody">
+              {%- for block in row_blocks -%}
+                <tr {{ block.shopify_attributes }}>
+                  <!-- Row label (sticky) -->
+                  <th class="mz-ct__row-label" scope="row">
+                    {{ block.settings.label | escape }}
+                  </th>
+
+                  <!-- Col 1 value (featured) -->
+                  <td class="mz-ct__cell mz-ct__cell--featured">
+                    {%- if block.settings.col1_value == 'check' -%}
+                      {{ icon_check }}
+                    {%- else -%}
+                      {{ icon_dash }}
+                    {%- endif -%}
+                  </td>
+
+                  <!-- Col 2 value -->
+                  <td class="mz-ct__cell">
+                    {%- if block.settings.col2_value == 'check' -%}
+                      {{ icon_check }}
+                    {%- else -%}
+                      {{ icon_dash }}
+                    {%- endif -%}
+                  </td>
+
+                  <!-- Col 3 value -->
+                  <td class="mz-ct__cell">
+                    {%- if block.settings.col3_value == 'check' -%}
+                      {{ icon_check }}
+                    {%- else -%}
+                      {{ icon_dash }}
+                    {%- endif -%}
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ========================
+           AREA: Image panels (right bottom)
+           ======================== -->
+      <div class="mz-ct__area-panels">
+        <div class="mz-ct__panels-card">
+
+          <!-- Panel 1 -->
+          <div class="mz-ct__panel">
+            {%- if section.settings.panel1_label != blank -%}
+              <span class="mz-ct__panel-label">{{ section.settings.panel1_label | escape }}</span>
+            {%- endif -%}
+            {%- if section.settings.panel1_image != blank -%}
+              {{
+                section.settings.panel1_image
+                | image_url: width: 700
+                | image_tag:
+                  loading: 'lazy',
+                  class: 'mz-ct__panel-image',
+                  alt: panel1_alt,
+                  widths: '350, 500, 700'
+              }}
+            {%- endif -%}
+          </div>
+
+          <!-- Panel 2 (featured) -->
+          <div class="mz-ct__panel">
+            {%- if section.settings.panel2_label != blank -%}
+              <span class="mz-ct__panel-label mz-ct__panel-label--featured">{{ section.settings.panel2_label | escape }}</span>
+            {%- endif -%}
+            {%- if section.settings.panel2_image != blank -%}
+              {{
+                section.settings.panel2_image
+                | image_url: width: 700
+                | image_tag:
+                  loading: 'lazy',
+                  class: 'mz-ct__panel-image',
+                  alt: panel2_alt,
+                  widths: '350, 500, 700'
+              }}
+            {%- endif -%}
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /.mz-ct__layout -->
+  </div><!-- /.page-width -->
+</div><!-- /.mz-ct -->
+
+{% schema %}
+{
+  "name": "MZ – Compare Table",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Finde dein perfektes Match"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Right-side description",
+      "default": "<p>Vergleiche beide Luviwear-Schuhe, um denjenigen zu finden, der zu deinem Lebensstil passt.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Column 1 (featured)"
+    },
+    {
+      "type": "text",
+      "id": "col1_title",
+      "label": "Column 1 title",
+      "default": "Ergonomischer Barfuß"
+    },
+    {
+      "type": "text",
+      "id": "col1_subtitle",
+      "label": "Column 1 subtitle",
+      "default": "80 $ · Bestseller"
+    },
+    {
+      "type": "color",
+      "id": "col1_title_color",
+      "label": "Column 1 title color",
+      "default": "#1a3a5c"
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "text",
+      "id": "col2_title",
+      "label": "Column 2 title",
+      "default": "Hike Ultra Prime"
+    },
+    {
+      "type": "text",
+      "id": "col2_subtitle",
+      "label": "Column 2 subtitle",
+      "default": "100 $ · Neuheit"
+    },
+    {
+      "type": "header",
+      "content": "Column 3"
+    },
+    {
+      "type": "text",
+      "id": "col3_title",
+      "label": "Column 3 title",
+      "default": "Generischer Komfortschuh"
+    },
+    {
+      "type": "text",
+      "id": "col3_subtitle",
+      "label": "Column 3 subtitle",
+      "default": "Durchschnitt 60–120 $"
+    },
+    {
+      "type": "header",
+      "content": "Icon colors"
+    },
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Checkmark color",
+      "default": "#1a3a5c"
+    },
+    {
+      "type": "color",
+      "id": "dash_color",
+      "label": "Dash color",
+      "default": "#f59e0b"
+    },
+    {
+      "type": "header",
+      "content": "Panel 1 (regular product)"
+    },
+    {
+      "type": "text",
+      "id": "panel1_label",
+      "label": "Panel 1 label",
+      "default": "Regulärer Schuh"
+    },
+    {
+      "type": "image_picker",
+      "id": "panel1_image",
+      "label": "Panel 1 image"
+    },
+    {
+      "type": "header",
+      "content": "Panel 2 (featured product)"
+    },
+    {
+      "type": "text",
+      "id": "panel2_label",
+      "label": "Panel 2 label",
+      "default": "Schuh mit breiter Zehenbox"
+    },
+    {
+      "type": "image_picker",
+      "id": "panel2_image",
+      "label": "Panel 2 image"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Table row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Feature label",
+          "default": "Feature Name"
+        },
+        {
+          "type": "select",
+          "id": "col1_value",
+          "label": "Column 1 (featured)",
+          "options": [
+            { "value": "check", "label": "✓ Check" },
+            { "value": "dash",  "label": "— Dash" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "select",
+          "id": "col2_value",
+          "label": "Column 2",
+          "options": [
+            { "value": "check", "label": "✓ Check" },
+            { "value": "dash",  "label": "— Dash" }
+          ],
+          "default": "check"
+        },
+        {
+          "type": "select",
+          "id": "col3_value",
+          "label": "Column 3",
+          "options": [
+            { "value": "check", "label": "✓ Check" },
+            { "value": "dash",  "label": "— Dash" }
+          ],
+          "default": "dash"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MZ – Compare Table",
+      "blocks": [
+        { "type": "row", "settings": { "label": "Breiter Zehenbereich (Ergonomisch)", "col1_value": "check", "col2_value": "check", "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "Null-Drop-Sohle",                    "col1_value": "check", "col2_value": "check", "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "Händefreier Einstieg",               "col1_value": "check", "col2_value": "dash",  "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "APMA akzeptiertes Siegel",           "col1_value": "check", "col2_value": "check", "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "Medizinische Schaumstoffeinlage",    "col1_value": "check", "col2_value": "check", "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "Von Podologen entworfen",            "col1_value": "check", "col2_value": "check", "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "Griffige Trail-Sohle",               "col1_value": "dash",  "col2_value": "check", "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "Atmungsaktives Mesh-Obermaterial",   "col1_value": "dash",  "col2_value": "check", "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "Nahtloses Innenleben (Diabetikerfreundlich)", "col1_value": "check", "col2_value": "check", "col3_value": "dash" } },
+        { "type": "row", "settings": { "label": "1 Jahr Garantie",                    "col1_value": "check", "col2_value": "check", "col3_value": "dash" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

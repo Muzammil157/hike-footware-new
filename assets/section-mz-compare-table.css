@@ -1,0 +1,277 @@
+/* ============================================
+   MZ Compare Table Section
+   Prefix: mz-ct-
+   ============================================ */
+
+.mz-ct {
+  padding-top: var(--mz-ct-padding-top-mobile);
+  padding-bottom: var(--mz-ct-padding-bottom-mobile);
+}
+
+@media screen and (min-width: 750px) {
+  .mz-ct {
+    padding-top: var(--mz-ct-padding-top);
+    padding-bottom: var(--mz-ct-padding-bottom);
+  }
+}
+
+/* ============================================
+   4-AREA GRID LAYOUT
+   heading | desc
+   table   | panels
+   ============================================ */
+.mz-ct__layout {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas:
+    "heading desc"
+    "table   panels";
+  gap: 2.4rem 5rem;
+  align-items: start;
+}
+
+.mz-ct__area-heading { grid-area: heading; }
+.mz-ct__area-desc    { grid-area: desc; }
+.mz-ct__area-table   { grid-area: table; }
+.mz-ct__area-panels  { grid-area: panels; }
+
+/* ============================================
+   HEADING
+   ============================================ */
+.mz-ct__heading {
+  margin: 0;
+  font-size: clamp(2.2rem, 3vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   RIGHT — Description
+   ============================================ */
+.mz-ct__desc {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: rgb(var(--color-foreground) / 0.8);
+}
+
+.mz-ct__desc p { margin: 0; }
+
+/* ============================================
+   TABLE WRAPPER — horizontal scroll on mobile
+   ============================================ */
+.mz-ct__table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.4rem;
+}
+
+.mz-ct__table-wrap::-webkit-scrollbar {
+  height: 4px;
+}
+
+.mz-ct__table-wrap::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.mz-ct__table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+.mz-ct__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.4rem;
+  min-width: 46rem; /* forces scroll on mobile */
+}
+
+/* ---- Header row ---- */
+.mz-ct__thead th {
+  padding: 1.2rem 1.6rem;
+  text-align: center;
+  vertical-align: bottom;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Empty corner cell (top-left) */
+.mz-ct__corner {
+  text-align: left !important;
+  min-width: 14rem;
+}
+
+/* Column headers */
+.mz-ct__col-title {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: rgb(var(--color-foreground));
+}
+
+.mz-ct__col-title--featured {
+  color: var(--mz-ct-col1-color, #1a3a5c);
+}
+
+.mz-ct__col-sub {
+  display: block;
+  font-size: 1.25rem;
+  color: rgb(var(--color-foreground) / 0.6);
+  font-weight: 400;
+}
+
+/* ---- Body rows ---- */
+.mz-ct__tbody tr:nth-child(odd) .mz-ct__row-label,
+.mz-ct__tbody tr:nth-child(odd) .mz-ct__cell {
+  background-color: #ffffff;
+}
+
+.mz-ct__tbody tr:nth-child(even) .mz-ct__row-label,
+.mz-ct__tbody tr:nth-child(even) .mz-ct__cell {
+  background-color: #f5f7fa;
+}
+
+/* Row label cell */
+.mz-ct__row-label {
+  padding: 1.4rem 1.6rem 1.4rem 0;
+  text-align: left;
+  font-weight: 400;
+  color: rgb(var(--color-foreground) / 0.85);
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  /* Sticky on mobile */
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 14rem;
+  max-width: 18rem;
+}
+
+/* Value cells */
+.mz-ct__cell {
+  padding: 1.4rem 1.6rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  min-width: 10rem;
+}
+
+/* Featured column (col 1) subtle highlight */
+.mz-ct__tbody tr:nth-child(odd) .mz-ct__cell--featured {
+  background-color: #f0f5fb;
+}
+
+.mz-ct__tbody tr:nth-child(even) .mz-ct__cell--featured {
+  background-color: #e8f0f8;
+}
+
+/* ---- Check & Dash icons ---- */
+.mz-ct__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mz-ct__icon svg {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.mz-ct__icon--check svg {
+  color: var(--mz-ct-check-color, #1a3a5c);
+  stroke: currentColor;
+}
+
+.mz-ct__icon--dash svg {
+  color: var(--mz-ct-dash-color, #f59e0b);
+  stroke: currentColor;
+}
+
+/* ============================================
+   RIGHT — Image panels card
+   ============================================ */
+.mz-ct__panels-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mz-ct__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mz-ct__panel + .mz-ct__panel {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mz-ct__panel-label {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(var(--color-foreground));
+}
+
+.mz-ct__panel-label--featured {
+  color: var(--mz-ct-col1-color, #1a3a5c);
+}
+
+.mz-ct__panel-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 0.6rem;
+}
+
+/* ============================================
+   MOBILE — stacked, table scrolls
+   ============================================ */
+@media screen and (max-width: 749px) {
+  .mz-ct__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .mz-ct__area-heading { order: 1; }
+  .mz-ct__area-desc    { order: 2; }
+  .mz-ct__area-table   { order: 3; }
+  .mz-ct__area-panels  { order: 4; }
+
+  .mz-ct__heading {
+    font-size: 2.4rem;
+  }
+
+  /* Hint that table scrolls — fade right edge */
+  .mz-ct__table-wrap {
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  }
+
+  /* Give label col a solid bg for sticky to work */
+  .mz-ct__row-label {
+    padding-right: 2rem;
+    min-width: 12rem;
+  }
+
+  .mz-ct__corner {
+    min-width: 12rem;
+  }
+
+  .mz-ct__cell {
+    min-width: 9rem;
+  }
+}
