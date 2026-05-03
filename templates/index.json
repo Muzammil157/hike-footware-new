@@ -268,6 +268,18 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "mz_split_images_FhCp7K": {
+      "type": "mz-split-images",
+      "name": "MZ – Split Images",
+      "settings": {
+        "image_1": "shopify://shop_images/0Q5A0106.jpg",
+        "image_2": "shopify://shop_images/0Q5A0098.jpg",
+        "image_aspect_ratio": "100%",
+        "gap": 4,
+        "image_rounded": false,
+        "color_scheme": ""
+      }
     }
   },
   "order": [
@@ -275,6 +287,7 @@
     "featured_collection",
     "mz_image_marquee_Rd7GNQ",
     "mz_faq_image_BCwVXM",
-    "mz_trust_features_cwJgie"
+    "mz_trust_features_cwJgie",
+    "mz_split_images_FhCp7K"
   ]
 }
