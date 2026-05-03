@@ -419,6 +419,71 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "mz_features_grid_wfdiX4": {
+      "type": "mz-features-grid",
+      "blocks": {
+        "card_9impyp": {
+          "type": "card",
+          "settings": {
+            "title": "Plantarfasziitis",
+            "description": "Die Null-Drop-Sohle reduziert die Spannung im Fersenbereich und verteilt den Druck gleichmäßig über den Fuß."
+          }
+        },
+        "card_rCX89N": {
+          "type": "card",
+          "settings": {
+            "title": "Hallux und Ballenzehen",
+            "description": "Der breite ergonomische Zehenbereich entlastet das Gelenk des Hallux vollständig."
+          }
+        },
+        "card_QyCxPz": {
+          "type": "card",
+          "settings": {
+            "title": "Schwellungen der Füße",
+            "description": "Das nicht einschränkende Obermaterial und das atmungsaktive Mesh passen sich im Laufe des Tages an das Fußvolumen an."
+          }
+        },
+        "card_YMmfyi": {
+          "type": "card",
+          "settings": {
+            "title": "Knie- und Hüftschmerzen",
+            "description": "Eine natürliche Fußausrichtung korrigiert Gangmuster, die Gelenkstress weiter oben in der Kette verursachen."
+          }
+        },
+        "card_C8dbig": {
+          "type": "card",
+          "settings": {
+            "title": "Diabetische Füße",
+            "description": "Keine Druckstellen, nahtfreies Innenleben und weiches Obermaterial schützen empfindliche diabetische Haut."
+          }
+        },
+        "card_W8UFFt": {
+          "type": "card",
+          "settings": {
+            "title": "Arthritis",
+            "description": "Die flexible Sohle reduziert die Gelenkbelastung und unterstützt die natürliche Bewegung arthritischer Füße."
+          }
+        }
+      },
+      "block_order": [
+        "card_9impyp",
+        "card_rCX89N",
+        "card_QyCxPz",
+        "card_YMmfyi",
+        "card_C8dbig",
+        "card_W8UFFt"
+      ],
+      "name": "MZ – Features Grid",
+      "settings": {
+        "heading": "Ihre Füße haben spezifische Bedürfnisse. Wir kümmern uns um alle.",
+        "heading_tag": "h2",
+        "overlay_opacity": 55,
+        "fallback_bg_color": "#1a2b3c",
+        "icon_bg_color": "#1a3a5c",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
     }
   },
   "order": [
@@ -429,6 +494,7 @@
     "mz_trust_features_cwJgie",
     "mz_split_images_FhCp7K",
     "mz_comparison_7U4kiE",
-    "mz_condition_list_7gyFcr"
+    "mz_condition_list_7gyFcr",
+    "mz_features_grid_wfdiX4"
   ]
 }
