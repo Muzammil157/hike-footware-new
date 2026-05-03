@@ -484,6 +484,135 @@
         "padding_top": 72,
         "padding_bottom": 72
       }
+    },
+    "mz_compare_table_TfCyXg": {
+      "type": "mz-compare-table",
+      "blocks": {
+        "row_k8CEiF": {
+          "type": "row",
+          "settings": {
+            "label": "Breiter Zehenbereich (Ergonomisch)",
+            "col1_value": "check",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        },
+        "row_mTV7CR": {
+          "type": "row",
+          "settings": {
+            "label": "Null-Drop-Sohle",
+            "col1_value": "check",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        },
+        "row_gnz8Wn": {
+          "type": "row",
+          "settings": {
+            "label": "Händefreier Einstieg",
+            "col1_value": "check",
+            "col2_value": "dash",
+            "col3_value": "dash"
+          }
+        },
+        "row_qgFRDx": {
+          "type": "row",
+          "settings": {
+            "label": "APMA akzeptiertes Siegel",
+            "col1_value": "check",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        },
+        "row_KByGmb": {
+          "type": "row",
+          "settings": {
+            "label": "Medizinische Schaumstoffeinlage",
+            "col1_value": "check",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        },
+        "row_LTyAyU": {
+          "type": "row",
+          "settings": {
+            "label": "Von Podologen entworfen",
+            "col1_value": "check",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        },
+        "row_jjFdep": {
+          "type": "row",
+          "settings": {
+            "label": "Griffige Trail-Sohle",
+            "col1_value": "dash",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        },
+        "row_MBUtjb": {
+          "type": "row",
+          "settings": {
+            "label": "Atmungsaktives Mesh-Obermaterial",
+            "col1_value": "dash",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        },
+        "row_zKKyXk": {
+          "type": "row",
+          "settings": {
+            "label": "Nahtloses Innenleben (Diabetikerfreundlich)",
+            "col1_value": "check",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        },
+        "row_dTrMUk": {
+          "type": "row",
+          "settings": {
+            "label": "1 Jahr Garantie",
+            "col1_value": "check",
+            "col2_value": "check",
+            "col3_value": "dash"
+          }
+        }
+      },
+      "block_order": [
+        "row_k8CEiF",
+        "row_mTV7CR",
+        "row_gnz8Wn",
+        "row_qgFRDx",
+        "row_KByGmb",
+        "row_LTyAyU",
+        "row_jjFdep",
+        "row_MBUtjb",
+        "row_zKKyXk",
+        "row_dTrMUk"
+      ],
+      "name": "MZ – Compare Table",
+      "settings": {
+        "heading": "Finde dein perfektes Match",
+        "heading_tag": "h2",
+        "description": "<p>Vergleiche beide Luviwear-Schuhe, um denjenigen zu finden, der zu deinem Lebensstil passt.</p>",
+        "col1_title": "Ergonomischer Barfuß",
+        "col1_subtitle": "80 $ · Bestseller",
+        "col1_title_color": "#1a3a5c",
+        "col2_title": "Hike Ultra Prime",
+        "col2_subtitle": "100 $ · Neuheit",
+        "col3_title": "Generischer Komfortschuh",
+        "col3_subtitle": "Durchschnitt 60–120 $",
+        "check_color": "#1a3a5c",
+        "dash_color": "#f59e0b",
+        "panel1_label": "Regulärer Schuh",
+        "panel1_image": "shopify://shop_images/0Q5A0107.jpg",
+        "panel2_label": "Schuh mit breiter Zehenbox",
+        "panel2_image": "shopify://shop_images/0Q5A0091.jpg",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -495,6 +624,7 @@
     "mz_split_images_FhCp7K",
     "mz_comparison_7U4kiE",
     "mz_condition_list_7gyFcr",
-    "mz_features_grid_wfdiX4"
+    "mz_features_grid_wfdiX4",
+    "mz_compare_table_TfCyXg"
   ]
 }
