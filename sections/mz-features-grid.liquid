@@ -1,0 +1,267 @@
+{{ 'section-mz-features-grid.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --mz-fg-padding-top: {{ section.settings.padding_top }}px;
+    --mz-fg-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mz-fg-padding-top-mobile: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --mz-fg-padding-bottom-mobile: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    --mz-fg-overlay: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    --mz-fg-fallback-bg: {{ section.settings.fallback_bg_color }};
+    --mz-fg-icon-bg: {{ section.settings.icon_bg_color }};
+  }
+{%- endstyle -%}
+
+{%- assign card_blocks = section.blocks | where: 'type', 'card' -%}
+{%- assign bg_alt = section.settings.bg_image.alt | escape -%}
+
+<div
+  class="mz-features-grid{% if section.settings.bg_image == blank %} mz-features-grid--no-image{% endif %}"
+  id="mz-features-grid-{{ section.id }}"
+>
+
+  <!-- Background image -->
+  {%- if section.settings.bg_image != blank -%}
+    <div class="mz-features-grid__bg" aria-hidden="true">
+      {{
+        section.settings.bg_image
+        | image_url: width: 1800
+        | image_tag:
+          loading: 'lazy',
+          alt: bg_alt,
+          widths: '750, 1100, 1500, 1800',
+          sizes: '100vw'
+      }}
+    </div>
+  {%- endif -%}
+
+  <div class="mz-features-grid__content page-width">
+
+    <!-- Heading -->
+    {%- if section.settings.heading != blank -%}
+      <{{ section.settings.heading_tag }} class="mz-features-grid__heading">
+        {{ section.settings.heading | escape }}
+      </{{ section.settings.heading_tag }}>
+    {%- endif -%}
+
+    <!-- Cards -->
+    {%- if card_blocks.size > 0 -%}
+      <div
+        class="mz-features-grid__grid"
+        id="mz-fg-slider-{{ section.id }}"
+        role="list"
+      >
+        {%- for block in card_blocks -%}
+          {%- assign icon_alt = block.settings.icon.alt | escape -%}
+          <div class="mz-features-grid__card" role="listitem" {{ block.shopify_attributes }}>
+
+            <!-- Icon circle -->
+            <div class="mz-features-grid__icon" aria-hidden="true">
+              {%- if block.settings.icon != blank -%}
+                {{
+                  block.settings.icon
+                  | image_url: width: 100
+                  | image_tag:
+                    loading: 'lazy',
+                    alt: icon_alt,
+                    widths: '50, 75, 100'
+                }}
+              {%- else -%}
+                <svg class="mz-features-grid__icon-placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2C8.5 2 6 5 6 8c0 4 6 13 6 13s6-9 6-13c0-3-2.5-6-6-6z"/>
+                  <circle cx="12" cy="8" r="2"/>
+                </svg>
+              {%- endif -%}
+            </div>
+
+            <!-- Title -->
+            {%- if block.settings.title != blank -%}
+              <h3 class="mz-features-grid__card-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+
+            <!-- Description -->
+            {%- if block.settings.description != blank -%}
+              <p class="mz-features-grid__card-desc">{{ block.settings.description | escape }}</p>
+            {%- endif -%}
+
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <!-- Slider dots (mobile only) -->
+      <div class="mz-features-grid__dots" id="mz-fg-dots-{{ section.id }}" aria-hidden="true">
+        {%- for block in card_blocks -%}
+          <button
+            class="mz-features-grid__dot{% if forloop.first %} mz-features-grid__dot--active{% endif %}"
+            data-index="{{ forloop.index0 }}"
+            aria-label="Slide {{ forloop.index }}"
+          ></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var slider = document.getElementById('mz-fg-slider-{{ section.id }}');
+    var dotsContainer = document.getElementById('mz-fg-dots-{{ section.id }}');
+    if (!slider || !dotsContainer) return;
+
+    var dots = Array.from(dotsContainer.querySelectorAll('.mz-features-grid__dot'));
+
+    function setActiveDot(index) {
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle('mz-features-grid__dot--active', i === index);
+      });
+    }
+
+    // Update dot on scroll
+    slider.addEventListener('scroll', function () {
+      var cardWidth = slider.firstElementChild ? slider.firstElementChild.offsetWidth + 12 : 1;
+      var index = Math.round(slider.scrollLeft / cardWidth);
+      setActiveDot(index);
+    }, { passive: true });
+
+    // Click dot to scroll to card
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        var index = parseInt(dot.dataset.index, 10);
+        var cardWidth = slider.firstElementChild ? slider.firstElementChild.offsetWidth + 12 : 0;
+        slider.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "MZ – Features Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Ihre Füße haben spezifische Bedürfnisse. Wir kümmern uns um alle."
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Dark overlay opacity",
+      "default": 55,
+      "info": "Controls how dark the overlay on the background image is"
+    },
+    {
+      "type": "color",
+      "id": "fallback_bg_color",
+      "label": "Fallback background color",
+      "default": "#1a2b3c",
+      "info": "Used when no background image is set"
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon circle background color",
+      "default": "#1a3a5c"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Feature card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image",
+          "info": "Displayed inside a dark circle. Use a white PNG or SVG."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Plantarfasziitis"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Die Null-Drop-Sohle reduziert die Spannung im Fersenbereich und verteilt den Druck gleichmäßig über den Fuß."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MZ – Features Grid",
+      "blocks": [
+        { "type": "card", "settings": { "title": "Plantarfasziitis",       "description": "Die Null-Drop-Sohle reduziert die Spannung im Fersenbereich und verteilt den Druck gleichmäßig über den Fuß." } },
+        { "type": "card", "settings": { "title": "Hallux und Ballenzehen", "description": "Der breite ergonomische Zehenbereich entlastet das Gelenk des Hallux vollständig." } },
+        { "type": "card", "settings": { "title": "Schwellungen der Füße",  "description": "Das nicht einschränkende Obermaterial und das atmungsaktive Mesh passen sich im Laufe des Tages an das Fußvolumen an." } },
+        { "type": "card", "settings": { "title": "Knie- und Hüftschmerzen","description": "Eine natürliche Fußausrichtung korrigiert Gangmuster, die Gelenkstress weiter oben in der Kette verursachen." } },
+        { "type": "card", "settings": { "title": "Diabetische Füße",       "description": "Keine Druckstellen, nahtfreies Innenleben und weiches Obermaterial schützen empfindliche diabetische Haut." } },
+        { "type": "card", "settings": { "title": "Arthritis",               "description": "Die flexible Sohle reduziert die Gelenkbelastung und unterstützt die natürliche Bewegung arthritischer Füße." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
