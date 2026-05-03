@@ -1,0 +1,122 @@
+/* ============================================
+   MZ Image Marquee Section
+   Prefix: mz-
+   ============================================ */
+
+.mz-image-marquee {
+  overflow: hidden;
+}
+
+.mz-image-marquee__heading-wrapper {
+  text-align: center;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  margin-bottom: 2.8rem;
+}
+
+.mz-image-marquee__heading {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ---- Marquee Container ---- */
+.mz-image-marquee__container {
+  overflow: hidden;
+  width: 100%;
+  cursor: default;
+}
+
+/* ---- Scrolling Track ---- */
+.mz-image-marquee__track {
+  display: flex;
+  gap: 1.2rem;
+  width: max-content;
+  will-change: transform;
+  animation: mz-marquee-scroll var(--mz-animation-speed, 20s) linear infinite;
+}
+
+/* Pause on hover (opt-in via modifier class) */
+.mz-image-marquee__container--pause-hover:hover .mz-image-marquee__track {
+  animation-play-state: paused;
+}
+
+/* ---- Individual Slide ---- */
+.mz-image-marquee__item {
+  flex-shrink: 0;
+  width: 28rem;
+  height: 35rem;
+  overflow: hidden;
+  border-radius: var(--mz-image-radius, 0px);
+  position: relative;
+}
+
+/* ---- Image ---- */
+.mz-image-marquee__img {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--mz-image-fit, cover);
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.mz-image-marquee__img--placeholder {
+  background-color: rgb(var(--color-foreground) / 0.06);
+}
+
+.mz-image-marquee__img--placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Keyframe Animation ---- */
+@keyframes mz-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================
+   Section Padding
+   ============================================ */
+.mz-image-marquee.section-padding {
+  padding-top: var(--mz-padding-top-mobile);
+  padding-bottom: var(--mz-padding-bottom-mobile);
+}
+
+@media screen and (min-width: 750px) {
+  .mz-image-marquee.section-padding {
+    padding-top: var(--mz-padding-top);
+    padding-bottom: var(--mz-padding-bottom);
+  }
+}
+
+/* ============================================
+   Responsive – Mobile
+   Show 1 slide + partial adjacent slides
+   ============================================ */
+@media screen and (max-width: 749px) {
+  .mz-image-marquee__heading {
+    font-size: 1.8rem;
+  }
+
+  .mz-image-marquee__heading-wrapper {
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .mz-image-marquee__track {
+    gap: 1rem;
+  }
+
+  .mz-image-marquee__item {
+    /* 76vw wide so partial slides are visible on both sides */
+    width: 76vw;
+    height: 96vw;
+  }
+}

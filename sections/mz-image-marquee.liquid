@@ -1,0 +1,234 @@
+{{ 'section-mz-image-marquee.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --mz-animation-speed: {{ section.settings.animation_speed }}s;
+    --mz-image-radius: {% if section.settings.image_rounded %}1.2rem{% else %}0px{% endif %};
+    --mz-image-fit: {{ section.settings.image_fit }};
+    --mz-padding-top: {{ section.settings.padding_top }}px;
+    --mz-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --mz-padding-top-mobile: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    --mz-padding-bottom-mobile: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign image_blocks = section.blocks | where: 'type', 'image'
+  assign block_count = image_blocks | size
+-%}
+
+<div class="mz-image-marquee section-padding color-{{ section.settings.color_scheme }} gradient">
+
+  {%- if section.settings.heading != blank -%}
+    <div class="mz-image-marquee__heading-wrapper page-width">
+      <{{ section.settings.heading_tag }} class="mz-image-marquee__heading {{ section.settings.heading_size }}">
+        {{ section.settings.heading | escape }}
+      </{{ section.settings.heading_tag }}>
+    </div>
+  {%- endif -%}
+
+  {%- if block_count > 0 -%}
+    <div
+      class="mz-image-marquee__container{% if section.settings.pause_on_hover %} mz-image-marquee__container--pause-hover{% endif %}"
+      role="region"
+      aria-label="{{ section.settings.heading | default: 'Image gallery' | escape }}"
+    >
+      <div class="mz-image-marquee__track">
+
+        {%- comment -%} Original set of images {%- endcomment -%}
+        {%- for block in image_blocks -%}
+          {%- assign slide_alt = block.settings.image.alt | default: block.settings.alt | escape -%}
+          <div
+            class="mz-image-marquee__item"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 700
+                | image_tag:
+                  class: 'mz-image-marquee__img',
+                  loading: 'lazy',
+                  alt: slide_alt,
+                  widths: '350, 500, 700',
+                  sizes: '(max-width: 749px) 76vw, 28rem'
+              }}
+            {%- else -%}
+              {{- 'lifestyle-1' | placeholder_svg_tag: 'mz-image-marquee__img mz-image-marquee__img--placeholder' -}}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+
+        {%- comment -%} Duplicate set — required for seamless infinite loop {%- endcomment -%}
+        {%- for block in image_blocks -%}
+          <div
+            class="mz-image-marquee__item"
+            aria-hidden="true"
+          >
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 700
+                | image_tag:
+                  class: 'mz-image-marquee__img',
+                  loading: 'lazy',
+                  alt: '',
+                  widths: '350, 500, 700',
+                  sizes: '(max-width: 749px) 76vw, 28rem'
+              }}
+            {%- else -%}
+              {{- 'lifestyle-1' | placeholder_svg_tag: 'mz-image-marquee__img mz-image-marquee__img--placeholder' -}}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+
+      </div>
+    </div>
+  {%- endif -%}
+
+</div>
+
+{% schema %}
+{
+  "name": "MZ – Image Marquee",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "1.450.000 Kunden lieben unsere Schuhe!",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "p",  "label": "Paragraph" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h3", "label": "Small" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "min": 5,
+      "max": 80,
+      "step": 1,
+      "unit": "s",
+      "label": "Scroll speed (seconds per loop)",
+      "info": "Lower value = faster scroll",
+      "default": 25
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_rounded",
+      "label": "Rounded corners",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "cover",   "label": "Cover (crop to fill)" },
+        { "value": "contain", "label": "Contain (show full image)" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text",
+          "info": "Describe the image for screen readers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "MZ – Image Marquee",
+      "blocks": [
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}
