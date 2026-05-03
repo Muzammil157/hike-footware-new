@@ -613,6 +613,48 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "mz_product_card_UXVD9D": {
+      "type": "mz-product-card",
+      "blocks": {
+        "tag_6NLjBD": {
+          "type": "tag",
+          "settings": {
+            "label": "Knieschmerzen"
+          }
+        },
+        "tag_qKqKHr": {
+          "type": "tag",
+          "settings": {
+            "label": "Hüftschmerzen"
+          }
+        },
+        "tag_GbkUtB": {
+          "type": "tag",
+          "settings": {
+            "label": "Rückenschmerzen"
+          }
+        }
+      },
+      "block_order": [
+        "tag_6NLjBD",
+        "tag_qKqKHr",
+        "tag_GbkUtB"
+      ],
+      "name": "MZ – Product Card",
+      "settings": {
+        "heading": "Luviwear Ultra Prime",
+        "tagline": "Für den Trail bereit. Körperfreundlich. Für lange Strecken gebaut.",
+        "product_image": "shopify://shop_images/0_2_20276963-bcee-47ff-8b01-1ba48aa5f87b.jpg",
+        "price": "$100",
+        "compare_price": "$130",
+        "button_label": "Produkt anzeigen",
+        "button_url": "",
+        "card_bg_color": "#1a3a5c",
+        "color_scheme": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -625,6 +667,7 @@
     "mz_comparison_7U4kiE",
     "mz_condition_list_7gyFcr",
     "mz_features_grid_wfdiX4",
-    "mz_compare_table_TfCyXg"
+    "mz_compare_table_TfCyXg",
+    "mz_product_card_UXVD9D"
   ]
 }
