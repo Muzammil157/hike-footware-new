@@ -19,7 +19,45 @@
 {% endcomment %}
 
 {%- liquid
-  assign mf_images = product.selected_or_first_available_variant.metafields.custom.gallery_images
+  # Step 1: try the selected variant's own metafield
+  assign selected_v  = product.selected_or_first_available_variant
+  assign mf_images   = selected_v.metafields.custom.gallery_images
+
+  # Step 2: if empty, find the first variant that shares the same
+  # colour option(s) and DOES have gallery_images set.
+  # Size is always the LAST option, so we match everything before it.
+  # This means merchants only need to fill the metafield on ONE size
+  # per colour (e.g. Silber/36) and all other sizes of that colour
+  # will inherit the same gallery.
+  if mf_images == blank or mf_images.size == 0
+    assign opts_count = product.options.size
+    if opts_count >= 4
+      assign color_key = selected_v.option1 | append: '|' | append: selected_v.option2 | append: '|' | append: selected_v.option3
+    elsif opts_count == 3
+      assign color_key = selected_v.option1 | append: '|' | append: selected_v.option2
+    else
+      assign color_key = selected_v.option1
+    endif
+
+    for variant in product.variants
+      if opts_count >= 4
+        assign vck = variant.option1 | append: '|' | append: variant.option2 | append: '|' | append: variant.option3
+      elsif opts_count == 3
+        assign vck = variant.option1 | append: '|' | append: variant.option2
+      else
+        assign vck = variant.option1
+      endif
+
+      if vck == color_key
+        assign candidate = variant.metafields.custom.gallery_images
+        if candidate != blank and candidate.size > 0
+          assign mf_images = candidate
+          break
+        endif
+      endif
+    endfor
+  endif
+
   assign has_mf_gallery = false
   if mf_images != blank and mf_images.size > 0
     assign has_mf_gallery = true
