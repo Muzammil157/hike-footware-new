@@ -88,35 +88,42 @@
         "image_qPA7LX": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/0Q5A0106.jpg",
+            "image": "shopify://shop_images/1.png",
             "alt": ""
           }
         },
         "image_rkmWA4": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/0Q5A0105.jpg",
+            "image": "shopify://shop_images/2.png",
             "alt": ""
           }
         },
         "image_NXNGfD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/0Q5A0101.jpg",
+            "image": "shopify://shop_images/3.png",
             "alt": ""
           }
         },
         "image_tAkF4T": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/0Q5A0100.jpg",
+            "image": "shopify://shop_images/4.png",
             "alt": ""
           }
         },
         "image_BWzPt7": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/0Q5A0098.jpg",
+            "image": "shopify://shop_images/10a2fcb979048ebf4894a9e9532b24d2e4542ad5.png",
+            "alt": ""
+          }
+        },
+        "image_yKWanP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/d0b8ec7b3c4831401f075d953738817d6683d2e0.png",
             "alt": ""
           }
         }
@@ -126,7 +133,8 @@
         "image_rkmWA4",
         "image_NXNGfD",
         "image_tAkF4T",
-        "image_BWzPt7"
+        "image_BWzPt7",
+        "image_yKWanP"
       ],
       "name": "MZ – Image Marquee",
       "settings": {
