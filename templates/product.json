@@ -164,14 +164,16 @@
         "faq_item_R8RRPc": {
           "type": "faq_item",
           "settings": {
-            "title": "Fußgewölbeunterstützung",
+            "icon": "shopify://shop_images/Wide_Toe_Box_100x_1.svg",
+            "title": "Geräumiger Zehenbereich",
             "answer": "<p>Enter the answer to this FAQ item here.</p>"
           }
         },
         "faq_item_AGjdmb": {
           "type": "faq_item",
           "settings": {
-            "title": "Fußgewölbeunterstützung",
+            "icon": "shopify://shop_images/Protective_Interior_100x_1.svg",
+            "title": "Sicherheitsauskleidung im Inneren",
             "answer": "<p>Enter the answer to this FAQ item here.</p>"
           }
         }
