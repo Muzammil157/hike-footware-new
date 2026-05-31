@@ -408,30 +408,35 @@
         "feature_item_mqJkpm": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Foot_Pain_b352c292-bed3-4982-b514-189ecbd427cc_100x_1.svg",
             "label": "Fußschmerzen"
           }
         },
         "feature_item_fGcXdN": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Plantar_Fasciitis_3ca7ac1e-331c-4388-a2f4-3833bc0f6007_100x_1.svg",
             "label": "Plantarfasziitis"
           }
         },
         "feature_item_Y9ndbk": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Diabetes_51a41503-0fc4-49c4-a161-e2aed917699b_100x_1.svg",
             "label": "Diabetes"
           }
         },
         "feature_item_ViKM8C": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Bunions_4bb43b17-baad-49b6-9751-840b8ffa41fc_100x_1.svg",
             "label": "Hallux Valgus"
           }
         },
         "feature_item_NnzRwC": {
           "type": "feature_item",
           "settings": {
+            "icon": "shopify://shop_images/Flat_Feet_ff70676d-5337-4719-98c0-5a5bba421e3c_100x_1.svg",
             "label": "Plattfüße"
           }
         }
