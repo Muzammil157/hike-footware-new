@@ -466,6 +466,7 @@
         "card_9impyp": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Frame_15052.svg",
             "title": "Plantarfasziitis",
             "description": "Die Null-Drop-Sohle reduziert die Spannung im Fersenbereich und verteilt den Druck gleichmäßig über den Fuß."
           }
