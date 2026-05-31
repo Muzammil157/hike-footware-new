@@ -69,7 +69,7 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
@@ -128,7 +128,7 @@
         "image_tAkF4T",
         "image_BWzPt7"
       ],
-      "name": "MZ \u2013 Image Marquee",
+      "name": "MZ – Image Marquee",
       "settings": {
         "heading": "1.450.000 Kunden lieben unsere Schuhe!",
         "heading_tag": "h2",
@@ -149,21 +149,21 @@
           "type": "faq_item",
           "settings": {
             "icon": "shopify://shop_images/Arch_Support_100x_1.svg",
-            "title": "Fu\u00dfgew\u00f6lbeunterst\u00fctzung",
+            "title": "Fußgewölbeunterstützung",
             "answer": "<p>Enter the answer to this FAQ item here.</p>"
           }
         },
         "faq_item_R8RRPc": {
           "type": "faq_item",
           "settings": {
-            "title": "Fu\u00dfgew\u00f6lbeunterst\u00fctzung",
+            "title": "Fußgewölbeunterstützung",
             "answer": "<p>Enter the answer to this FAQ item here.</p>"
           }
         },
         "faq_item_AGjdmb": {
           "type": "faq_item",
           "settings": {
-            "title": "Fu\u00dfgew\u00f6lbeunterst\u00fctzung",
+            "title": "Fußgewölbeunterstützung",
             "answer": "<p>Enter the answer to this FAQ item here.</p>"
           }
         }
@@ -173,13 +173,13 @@
         "faq_item_R8RRPc",
         "faq_item_AGjdmb"
       ],
-      "name": "MZ \u2013 FAQ + Image",
+      "name": "MZ – FAQ + Image",
       "settings": {
-        "heading": "Ultimativer Komfort: Schuhe, die sich Ihren F\u00fc\u00dfen anpassen",
+        "heading": "Ultimativer Komfort: Schuhe, die sich Ihren Füßen anpassen",
         "heading_tag": "h2",
         "image": "shopify://shop_images/0Q5A0248.jpg",
         "image_rounded": true,
-        "subheading": "Wir sind der Meinung, dass Gehen Freude bereiten sollte, weshalb wir unser Schuhwerk sorgf\u00e4ltig entwickelt haben, um Ihre F\u00fc\u00dfe mit langanhaltendem Komfort zu unterst\u00fctzen.",
+        "subheading": "Wir sind der Meinung, dass Gehen Freude bereiten sollte, weshalb wir unser Schuhwerk sorgfältig entwickelt haben, um Ihre Füße mit langanhaltendem Komfort zu unterstützen.",
         "color_scheme": "",
         "padding_top": 60,
         "padding_bottom": 60
@@ -200,7 +200,7 @@
           "type": "stat",
           "settings": {
             "value": "94%",
-            "description": "Weniger Fu\u00dfschmerzen nach 2 Wochen.",
+            "description": "Weniger Fußschmerzen nach 2 Wochen.",
             "value_color": ""
           }
         },
@@ -208,7 +208,7 @@
           "type": "stat",
           "settings": {
             "value": "APMA",
-            "description": "Accepted Seal \u2013 beide Produkte",
+            "description": "Accepted Seal – beide Produkte",
             "value_color": ""
           }
         },
@@ -262,12 +262,12 @@
         "feature_4W3UTf",
         "feature_TPQiJK"
       ],
-      "name": "MZ \u2013 Trust + Features",
+      "name": "MZ – Trust + Features",
       "settings": {
-        "heading": "Vertraut von \u00fcber 2.400 Podologen landesweit",
+        "heading": "Vertraut von über 2.400 Podologen landesweit",
         "heading_tag": "h2",
         "image_rounded": false,
-        "paragraph": "<p>Luviwear ist nicht nur bequem \u2013 es ist klinisch gestaltet. Unser Team hat eng mit Podologen, Physiotherapeuten und Geriatriespezialisten zusammengearbeitet, um Schuhe zu entwickeln, die den tats\u00e4chlichen biomechanischen Bed\u00fcrfnissen alternder F\u00fc\u00dfe gerecht werden. Sowohl der Ergonomische Barfu\u00dfschuh als auch der Hike Ultra Prime haben das Accepted Seal der American Podiatric Medical Association (APMA) erhalten \u2013 eine unabh\u00e4ngige Auszeichnung, die nur Produkten verliehen wird, die eine gute Fu\u00dfgesundheit f\u00f6rdern.</p>",
+        "paragraph": "<p>Luviwear ist nicht nur bequem – es ist klinisch gestaltet. Unser Team hat eng mit Podologen, Physiotherapeuten und Geriatriespezialisten zusammengearbeitet, um Schuhe zu entwickeln, die den tatsächlichen biomechanischen Bedürfnissen alternder Füße gerecht werden. Sowohl der Ergonomische Barfußschuh als auch der Hike Ultra Prime haben das Accepted Seal der American Podiatric Medical Association (APMA) erhalten – eine unabhängige Auszeichnung, die nur Produkten verliehen wird, die eine gute Fußgesundheit fördern.</p>",
         "stat_value_color": "#1a2b6b",
         "checkmark_color": "#2d7a3a",
         "color_scheme": "",
@@ -277,7 +277,7 @@
     },
     "mz_split_images_FhCp7K": {
       "type": "mz-split-images",
-      "name": "MZ \u2013 Split Images",
+      "name": "MZ – Split Images",
       "settings": {
         "image_1": "shopify://shop_images/0Q5A0106.jpg",
         "image_2": "shopify://shop_images/0Q5A0098.jpg",
@@ -307,43 +307,43 @@
         "problem_jgHYQE": {
           "type": "problem",
           "settings": {
-            "heading": "Flache F\u00fc\u00dfe / wenig Halt",
+            "heading": "Flache Füße / wenig Halt",
             "text": "Zu wenig Halt verursacht Fehlstellungen & Schmerzen."
           }
         },
         "problem_wchLYC": {
           "type": "problem",
           "settings": {
-            "heading": "Enges, einschr\u00e4nkendes Schuhwerk",
-            "text": "Schmale Designs schr\u00e4nken die Bewegung ein und verursachen Druckstellen."
+            "heading": "Enges, einschränkendes Schuhwerk",
+            "text": "Schmale Designs schränken die Bewegung ein und verursachen Druckstellen."
           }
         },
         "solution_VcM8VY": {
           "type": "solution",
           "settings": {
             "heading": "Druckentlastende Polsterung",
-            "text": "Absorbiert St\u00f6\u00dfe, um Stress auf F\u00fc\u00dfe, Knie und Gelenke zu reduzieren."
+            "text": "Absorbiert Stöße, um Stress auf Füße, Knie und Gelenke zu reduzieren."
           }
         },
         "solution_w4P7mU": {
           "type": "solution",
           "settings": {
-            "heading": "Gezielte Fersenunterst\u00fctzung",
+            "heading": "Gezielte Fersenunterstützung",
             "text": "Entwickelt, um Schmerzen und Belastungen bei jedem Schritt zu reduzieren."
           }
         },
         "solution_ptW3a6": {
           "type": "solution",
           "settings": {
-            "heading": "Integrierte Fu\u00dfgew\u00f6lbeunterst\u00fctzung",
-            "text": "F\u00f6rdert die richtige Ausrichtung und verbessert die allgemeine K\u00f6rperhaltung."
+            "heading": "Integrierte Fußgewölbeunterstützung",
+            "text": "Fördert die richtige Ausrichtung und verbessert die allgemeine Körperhaltung."
           }
         },
         "solution_h7GDGE": {
           "type": "solution",
           "settings": {
             "heading": "Breites, flexibles Design",
-            "text": "Gibt Ihren Zehen Raum, sich nat\u00fcrlich und ohne Einschr\u00e4nkung zu bewegen."
+            "text": "Gibt Ihren Zehen Raum, sich natürlich und ohne Einschränkung zu bewegen."
           }
         }
       },
@@ -357,14 +357,14 @@
         "solution_ptW3a6",
         "solution_h7GDGE"
       ],
-      "name": "MZ \u2013 Comparison",
+      "name": "MZ – Comparison",
       "settings": {
-        "heading": "Fu\u00dfschmerzen halten Sie zur\u00fcck. Hier ist die L\u00f6sung.",
+        "heading": "Fußschmerzen halten Sie zurück. Hier ist die Lösung.",
         "heading_tag": "h2",
-        "left_col_label": "Haben Sie Fu\u00dfschmerzen?",
-        "right_col_label": "Die Luviwear-L\u00f6sung:",
-        "mobile_solution_label": "Die Luviwear-L\u00f6sung",
-        "mobile_solution_heading": "F\u00fcr mehr Komfort \u2013 jeden Schritt.",
+        "left_col_label": "Haben Sie Fußschmerzen?",
+        "right_col_label": "Die Luviwear-Lösung:",
+        "mobile_solution_label": "Die Luviwear-Lösung",
+        "mobile_solution_heading": "Für mehr Komfort – jeden Schritt.",
         "icon_bg_color": "#0d2d5e",
         "outer_bg_color": "#e8f0fe",
         "inner_bg_color": "#ffffff",
@@ -379,7 +379,7 @@
         "feature_item_mqJkpm": {
           "type": "feature_item",
           "settings": {
-            "label": "Fu\u00dfschmerzen"
+            "label": "Fußschmerzen"
           }
         },
         "feature_item_fGcXdN": {
@@ -403,7 +403,7 @@
         "feature_item_NnzRwC": {
           "type": "feature_item",
           "settings": {
-            "label": "Plattf\u00fc\u00dfe"
+            "label": "Plattfüße"
           }
         }
       },
@@ -414,11 +414,11 @@
         "feature_item_ViKM8C",
         "feature_item_NnzRwC"
       ],
-      "name": "MZ \u2013 Condition List",
+      "name": "MZ – Condition List",
       "settings": {
-        "heading": "Hilfe bei allt\u00e4glichen Beschwerden",
+        "heading": "Hilfe bei alltäglichen Beschwerden",
         "heading_tag": "h2",
-        "paragraph": "<p>Gesunde F\u00fc\u00dfe sind die Grundlage f\u00fcr gesunde Bewegungen. Uviwear-Schuhe unterst\u00fctzen die nat\u00fcrliche Bewegung und helfen Ihrem K\u00f6rper, sich neu auszurichten und sich m\u00fchelos zu bewegen.</p>",
+        "paragraph": "<p>Gesunde Füße sind die Grundlage für gesunde Bewegungen. Uviwear-Schuhe unterstützen die natürliche Bewegung und helfen Ihrem Körper, sich neu auszurichten und sich mühelos zu bewegen.</p>",
         "image": "shopify://shop_images/0Q5A0087.jpg",
         "image_rounded": true,
         "color_scheme": "",
@@ -433,42 +433,42 @@
           "type": "card",
           "settings": {
             "title": "Plantarfasziitis",
-            "description": "Die Null-Drop-Sohle reduziert die Spannung im Fersenbereich und verteilt den Druck gleichm\u00e4\u00dfig \u00fcber den Fu\u00df."
+            "description": "Die Null-Drop-Sohle reduziert die Spannung im Fersenbereich und verteilt den Druck gleichmäßig über den Fuß."
           }
         },
         "card_rCX89N": {
           "type": "card",
           "settings": {
             "title": "Hallux und Ballenzehen",
-            "description": "Der breite ergonomische Zehenbereich entlastet das Gelenk des Hallux vollst\u00e4ndig."
+            "description": "Der breite ergonomische Zehenbereich entlastet das Gelenk des Hallux vollständig."
           }
         },
         "card_QyCxPz": {
           "type": "card",
           "settings": {
-            "title": "Schwellungen der F\u00fc\u00dfe",
-            "description": "Das nicht einschr\u00e4nkende Obermaterial und das atmungsaktive Mesh passen sich im Laufe des Tages an das Fu\u00dfvolumen an."
+            "title": "Schwellungen der Füße",
+            "description": "Das nicht einschränkende Obermaterial und das atmungsaktive Mesh passen sich im Laufe des Tages an das Fußvolumen an."
           }
         },
         "card_YMmfyi": {
           "type": "card",
           "settings": {
-            "title": "Knie- und H\u00fcftschmerzen",
-            "description": "Eine nat\u00fcrliche Fu\u00dfausrichtung korrigiert Gangmuster, die Gelenkstress weiter oben in der Kette verursachen."
+            "title": "Knie- und Hüftschmerzen",
+            "description": "Eine natürliche Fußausrichtung korrigiert Gangmuster, die Gelenkstress weiter oben in der Kette verursachen."
           }
         },
         "card_C8dbig": {
           "type": "card",
           "settings": {
-            "title": "Diabetische F\u00fc\u00dfe",
-            "description": "Keine Druckstellen, nahtfreies Innenleben und weiches Obermaterial sch\u00fctzen empfindliche diabetische Haut."
+            "title": "Diabetische Füße",
+            "description": "Keine Druckstellen, nahtfreies Innenleben und weiches Obermaterial schützen empfindliche diabetische Haut."
           }
         },
         "card_W8UFFt": {
           "type": "card",
           "settings": {
             "title": "Arthritis",
-            "description": "Die flexible Sohle reduziert die Gelenkbelastung und unterst\u00fctzt die nat\u00fcrliche Bewegung arthritischer F\u00fc\u00dfe."
+            "description": "Die flexible Sohle reduziert die Gelenkbelastung und unterstützt die natürliche Bewegung arthritischer Füße."
           }
         }
       },
@@ -480,9 +480,9 @@
         "card_C8dbig",
         "card_W8UFFt"
       ],
-      "name": "MZ \u2013 Features Grid",
+      "name": "MZ – Features Grid",
       "settings": {
-        "heading": "Ihre F\u00fc\u00dfe haben spezifische Bed\u00fcrfnisse. Wir k\u00fcmmern uns um alle.",
+        "heading": "Ihre Füße haben spezifische Bedürfnisse. Wir kümmern uns um alle.",
         "heading_tag": "h2",
         "overlay_opacity": 55,
         "fallback_bg_color": "#1a2b3c",
@@ -515,7 +515,7 @@
         "row_gnz8Wn": {
           "type": "row",
           "settings": {
-            "label": "H\u00e4ndefreier Einstieg",
+            "label": "Händefreier Einstieg",
             "col1_value": "check",
             "col2_value": "dash",
             "col3_value": "dash"
@@ -597,21 +597,21 @@
         "row_zKKyXk",
         "row_dTrMUk"
       ],
-      "name": "MZ \u2013 Compare Table",
+      "name": "MZ – Compare Table",
       "settings": {
         "heading": "Finde dein perfektes Match",
         "heading_tag": "h2",
         "description": "<p>Vergleiche beide Luviwear-Schuhe, um denjenigen zu finden, der zu deinem Lebensstil passt.</p>",
-        "col1_title": "Ergonomischer Barfu\u00df",
-        "col1_subtitle": "80 $ \u00b7 Bestseller",
+        "col1_title": "Ergonomischer Barfuß",
+        "col1_subtitle": "80 $ · Bestseller",
         "col1_title_color": "#1a3a5c",
         "col2_title": "Hike Ultra Prime",
-        "col2_subtitle": "100 $ \u00b7 Neuheit",
+        "col2_subtitle": "100 $ · Neuheit",
         "col3_title": "Generischer Komfortschuh",
-        "col3_subtitle": "Durchschnitt 60\u2013120 $",
+        "col3_subtitle": "Durchschnitt 60–120 $",
         "check_color": "#1a3a5c",
         "dash_color": "#f59e0b",
-        "panel1_label": "Regul\u00e4rer Schuh",
+        "panel1_label": "Regulärer Schuh",
         "panel1_image": "shopify://shop_images/0Q5A0107.jpg",
         "panel2_label": "Schuh mit breiter Zehenbox",
         "panel2_image": "shopify://shop_images/0Q5A0091.jpg",
@@ -632,13 +632,13 @@
         "tag_qKqKHr": {
           "type": "tag",
           "settings": {
-            "label": "H\u00fcftschmerzen"
+            "label": "Hüftschmerzen"
           }
         },
         "tag_GbkUtB": {
           "type": "tag",
           "settings": {
-            "label": "R\u00fcckenschmerzen"
+            "label": "Rückenschmerzen"
           }
         }
       },
@@ -647,10 +647,10 @@
         "tag_qKqKHr",
         "tag_GbkUtB"
       ],
-      "name": "MZ \u2013 Product Card",
+      "name": "MZ – Product Card",
       "settings": {
         "heading": "Luviwear Ultra Prime",
-        "tagline": "F\u00fcr den Trail bereit. K\u00f6rperfreundlich. F\u00fcr lange Strecken gebaut.",
+        "tagline": "Für den Trail bereit. Körperfreundlich. Für lange Strecken gebaut.",
         "product_image": "shopify://shop_images/0_2_20276963-bcee-47ff-8b01-1ba48aa5f87b.jpg",
         "price": "$100",
         "compare_price": "$130",
