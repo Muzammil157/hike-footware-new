@@ -308,8 +308,8 @@
       "type": "mz-split-images",
       "name": "MZ – Split Images",
       "settings": {
-        "image_1": "shopify://shop_images/0Q5A0106.jpg",
-        "image_2": "shopify://shop_images/0Q5A0098.jpg",
+        "image_1": "shopify://shop_images/0Q5A0222_1.png",
+        "image_2": "shopify://shop_images/Frame_2095585638.png",
         "image_aspect_ratio": "100%",
         "gap": 4,
         "image_rounded": false,
