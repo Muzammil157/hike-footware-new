@@ -176,12 +176,30 @@
             "title": "Sicherheitsauskleidung im Inneren",
             "answer": "<p>Enter the answer to this FAQ item here.</p>"
           }
+        },
+        "faq_item_UBetaC": {
+          "type": "faq_item",
+          "settings": {
+            "icon": "shopify://shop_images/Cushioning_100x_1.svg",
+            "title": "Komfortorientierte Polsterung",
+            "answer": "<p>Enter the answer to this FAQ item here.</p>"
+          }
+        },
+        "faq_item_QeHiY9": {
+          "type": "faq_item",
+          "settings": {
+            "icon": "shopify://shop_images/12-Hour_Comfort_100x_1.svg",
+            "title": "Ganztägiger Komfort",
+            "answer": "<p>Enter the answer to this FAQ item here.</p>"
+          }
         }
       },
       "block_order": [
         "faq_item_4k7qVL",
         "faq_item_R8RRPc",
-        "faq_item_AGjdmb"
+        "faq_item_AGjdmb",
+        "faq_item_UBetaC",
+        "faq_item_QeHiY9"
       ],
       "name": "MZ – FAQ + Image",
       "settings": {
