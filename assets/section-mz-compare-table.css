@@ -234,6 +234,7 @@
   width: 100%;
   max-width: 69%;
   margin: 0 0 0 auto;
+  aspect-ratio: 1/1;
   height: auto;
   display: block;
   object-fit: contain;
