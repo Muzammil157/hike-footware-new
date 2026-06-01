@@ -232,6 +232,8 @@
 
 .mz-ct__panel-image {
   width: 100%;
+  max-width: 69%;
+  margin: 0 0 0 auto;
   height: auto;
   display: block;
   object-fit: contain;
