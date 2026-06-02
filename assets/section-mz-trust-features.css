@@ -88,7 +88,7 @@
 .mz-trust__stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem 6rem;
+  gap: 5rem 7rem;
   align-content: start;
 }
 
