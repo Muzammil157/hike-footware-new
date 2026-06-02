@@ -82,12 +82,12 @@
 }
 
 .mz-faq-image__item {
-  border-bottom: 1px solid rgb(var(--color-foreground) / 0.12);
+  border-bottom: 1px solid #d7d7d7;
   list-style: none;
 }
 
-.mz-faq-image__item:first-child {
-  border-top: 1px solid rgb(var(--color-foreground) / 0.12);
+.mz-faq-image__item:last-child {
+  border-bottom: none;
 }
 
 /* Remove default marker on summary */
@@ -100,7 +100,6 @@
   list-style: none;
   user-select: none;
   -webkit-user-select: none;
-  border-bottom: 1px solid #d7d7d7;
 }
 
 .mz-faq-image__item-header::-webkit-details-marker {
