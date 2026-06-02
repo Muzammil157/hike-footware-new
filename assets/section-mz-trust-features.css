@@ -95,13 +95,13 @@
 .mz-trust__stat {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 1.5rem;
 }
 
 .mz-trust__stat-value {
   font-size: clamp(2.4rem, 3.5vw, 3.6rem);
   font-weight: 700;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--mz-trust-stat-color, #1a2b6b);
   margin: 0;
 }
