@@ -72,8 +72,8 @@
    ============================================ */
 .mz-trust__paragraph {
   margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.7;
+  font-size: 1.6rem;
+  line-height: 33px;
   color: rgb(var(--color-foreground) / 0.85);
 }
 
