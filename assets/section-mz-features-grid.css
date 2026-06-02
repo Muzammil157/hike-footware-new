@@ -49,6 +49,9 @@
 /* ---- Content sits above the overlay ---- */
 .mz-features-grid__content {
   position: relative;
+  width: 100%;
+  max-width: 1256px;
+  margin: 0 auto;
   z-index: 1;
   display: flex;
   flex-direction: column;
