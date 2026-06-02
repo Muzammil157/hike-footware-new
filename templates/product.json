@@ -475,6 +475,7 @@
         "card_rCX89N": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Frame_15052_1.svg",
             "title": "Hallux und Ballenzehen",
             "description": "Der breite ergonomische Zehenbereich entlastet das Gelenk des Hallux vollständig."
           }
@@ -482,6 +483,7 @@
         "card_QyCxPz": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Frame_15052_2.svg",
             "title": "Schwellungen der Füße",
             "description": "Das nicht einschränkende Obermaterial und das atmungsaktive Mesh passen sich im Laufe des Tages an das Fußvolumen an."
           }
@@ -489,6 +491,7 @@
         "card_YMmfyi": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Frame_15052_3.svg",
             "title": "Knie- und Hüftschmerzen",
             "description": "Eine natürliche Fußausrichtung korrigiert Gangmuster, die Gelenkstress weiter oben in der Kette verursachen."
           }
@@ -496,6 +499,7 @@
         "card_C8dbig": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Frame_15052_4.svg",
             "title": "Diabetische Füße",
             "description": "Keine Druckstellen, nahtfreies Innenleben und weiches Obermaterial schützen empfindliche diabetische Haut."
           }
@@ -503,6 +507,7 @@
         "card_W8UFFt": {
           "type": "card",
           "settings": {
+            "icon": "shopify://shop_images/Frame_15052_5.svg",
             "title": "Arthritis",
             "description": "Die flexible Sohle reduziert die Gelenkbelastung und unterstützt die natürliche Bewegung arthritischer Füße."
           }
