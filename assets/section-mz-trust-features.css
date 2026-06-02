@@ -95,7 +95,7 @@
 .mz-trust__stat {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 1.6rem;
 }
 
 .mz-trust__stat-value {
