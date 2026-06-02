@@ -107,8 +107,8 @@
 }
 
 .mz-trust__stat-desc {
-  font-size: 1.4rem;
-  line-height: 1.55;
+  font-size: 1.6rem;
+  line-height: 1.8;
   color: rgb(var(--color-foreground) / 0.75);
   margin: 0;
 }
