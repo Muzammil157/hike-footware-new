@@ -108,6 +108,7 @@
    ============================================ */
 .mz-cond__image-wrapper {
   width: 100%;
+  aspect-ratio: 1/0.87;
   overflow: hidden;
   border-radius: var(--mz-cond-image-radius, 1.2rem);
 }
@@ -115,7 +116,7 @@
 .mz-cond__image-wrapper img,
 .mz-cond__image-wrapper svg {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
 }
