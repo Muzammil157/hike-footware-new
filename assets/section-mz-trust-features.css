@@ -134,6 +134,7 @@
   white-space: nowrap;
   background: #F0F5F7;
   padding: 7px 16px;
+  border-radius: 50px;
 }
 
 .mz-trust__feature-icon {
