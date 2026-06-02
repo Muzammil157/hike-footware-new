@@ -132,6 +132,8 @@
   font-weight: 400;
   color: rgb(var(--color-foreground) / 0.85);
   white-space: nowrap;
+  background: #F0F5F7;
+  padding: 7px 16px;
 }
 
 .mz-trust__feature-icon {
