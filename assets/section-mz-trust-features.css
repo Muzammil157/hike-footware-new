@@ -35,7 +35,7 @@
 }
 
 .mz-trust__area-heading  { grid-area: heading; }
-.mz-trust__area-right    { grid-area: right; display: flex; flex-direction: column; gap: 3.2rem; }
+.mz-trust__area-right    { grid-area: right; display: flex; flex-direction: column; gap: 5rem; }
 .mz-trust__area-image    { grid-area: image; }
 .mz-trust__area-features { grid-area: features; }
 
