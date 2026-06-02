@@ -45,8 +45,8 @@
 /* ---- Individual Slide ---- */
 .mz-image-marquee__item {
   flex-shrink: 0;
-  width: 28rem;
-  height: 35rem;
+  width: 33rem;
+  height: 42rem;
   overflow: hidden;
   border-radius: var(--mz-image-radius, 0px);
   position: relative;
