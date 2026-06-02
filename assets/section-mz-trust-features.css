@@ -56,6 +56,7 @@
 .mz-trust__image-wrapper {
   width: 100%;
   overflow: hidden;
+  max-width: 84%;
   border-radius: var(--mz-trust-image-radius, 0px);
 }
 
