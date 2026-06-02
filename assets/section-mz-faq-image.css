@@ -46,6 +46,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: var(--mz-faq-image-radius, 0px);
+  aspect-ratio: 1/0.93;
 }
 
 .mz-faq-image__image-wrapper img {
