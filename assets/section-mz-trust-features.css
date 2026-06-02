@@ -101,7 +101,7 @@
 .mz-trust__stat-value {
   font-size: clamp(2.4rem, 3.5vw, 3.6rem);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.6;
   color: var(--mz-trust-stat-color, #1a2b6b);
   margin: 0;
 }
